@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../context/user.context";
-import { useContext, useState } from 'react';
+// import { UserContext } from "../context/user.context";
+// import { useContext, useState } from 'react';
 
 
 export const Navbar = () => {
@@ -15,7 +15,13 @@ export const Navbar = () => {
                     <NavLink to="/signup">Signup</NavLink> 
                 </div>
                 <div>
-                    <NavLink to="/workout">Start Workout</NavLink> 
+                    <NavLink to="/">Home</NavLink> 
+                </div>
+                <div>
+                    <NavLink to="/workout-entry">Start Workout</NavLink> 
+                </div>
+                <div>
+                    <NavLink to="/addexercise">Add Exercise</NavLink> 
                 </div>
             </div>
         </nav>
