@@ -1,20 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOMClient from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
-// import { UserProviderWrapper } from "./context/user.context";
+import { UserProviderWrapper } from "./context/user.context";
 
-ReactDOM.render(
+const container = document.getElementById('root')
+
+const root = ReactDOMClient.createRoot(container);
+
+root.render(
   <React.StrictMode>
     <Router>
-      {/* <UserProviderWrapper> */}
+      <UserProviderWrapper>
         <App />
-      {/* </UserProviderWrapper> */}
+       </UserProviderWrapper>
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 reportWebVitals();

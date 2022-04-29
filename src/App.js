@@ -7,10 +7,13 @@ import { Navbar } from './components/Navbar';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { EditProject } from './Pages/EditProject';
-import { UserContext } from "./context/user.context";
-import { useContext } from 'react';
+// import { UserContext } from "./context/user.context";
+// import { useContext } from 'react';
 import { Signup } from './pages/Signup';
 import { Login } from './pages/Login';
+import { WorkoutEntry } from './pages/WorkoutEntry';
+import { Home } from './pages/Home';
+import { AddExercise } from './pages/AddExercise';
 // import { IsPrivate } from "./components/IsPrivate";
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
         <Route path="/projects/:projectId/edit" element={<EditProject />} />*/}
         <Route path="/signup" element={<Signup />} /> 
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/workout-entry" element={<WorkoutEntry />} />
+        <Route path="/addexercise" element={<AddExercise />} /> 
       </Routes>
     </div>
   );
