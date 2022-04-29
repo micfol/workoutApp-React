@@ -20,6 +20,8 @@ export const Login = () => {
         navigate("/");
     };
 
+    // Username: Test Password: password
+
     return (
         <>
             <h1>Login</h1>
