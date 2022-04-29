@@ -8,15 +8,15 @@ export const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    // const { storeToken, authenticateUser } = useContext(UserContext);
+    const { storeToken, authenticateUser } = useContext(UserContext);
 
     const navigate = useNavigate();
 
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         const response = await login({ username, password });
-        // storeToken(response.data.authToken);
-        // authenticateUser();
+        storeToken(response.data.authToken);
+        authenticateUser();
         navigate("/");
     };
 

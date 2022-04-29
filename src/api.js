@@ -37,3 +37,7 @@ export const verify = (storedToken) => {
 export const upload = (uploadData) => {
     return axios.post(`${baseURL}/upload`, uploadData)
 }
+
+export const addExercise = (addExercise) => {
+    return axios.post(`${baseURL}/exerciseType`, addExercise);
+}
