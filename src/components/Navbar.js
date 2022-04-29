@@ -26,7 +26,7 @@ export const Navbar = () => {
                 {isLoggedIn && 
                 <>
                   <div>
-                        <NavLink to="/workout-entry">Start Workout</NavLink> 
+                        <NavLink to="/exerciseEntry">Start Workout</NavLink> 
                     </div>
 
                     <div>

@@ -41,3 +41,7 @@ export const upload = (uploadData) => {
 export const addExercise = (addExercise) => {
     return axios.post(`${baseURL}/exerciseType`, addExercise);
 }
+
+export const exerciseEntry = (exerciseEntry) => {
+    return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
+}
