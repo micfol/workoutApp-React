@@ -17,10 +17,9 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     await signup(Object.fromEntries(
-      ['username', 'firstName', 'lastName', 'email', 'password']
-      .map((x) => [x, data.get(x)])))
-      
-      event.target.reset()
+      ['username', 'firstName', 'lastName', 'email', 'password'].map((x) => [x, data.get(x)])
+    ))
+    event.target.reset()
   };
 
   return (
@@ -50,7 +49,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -66,11 +65,11 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 required
-                fullWidth                
+                fullWidth
                 name="username"
                 id="username"
                 label="Username"
-                
+
               />
             </Grid>
             <Grid item xs={12}>

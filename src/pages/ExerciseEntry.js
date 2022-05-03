@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { exerciseEntry } from "../api";
 import { useNavigate } from "react-router";
+import { Button, Stack, Typography} from "@mui/material";
 
 export const ExerciseEntry = () => {
 
@@ -12,42 +13,52 @@ export const ExerciseEntry = () => {
         set5: 5
     };
 
-    const [exerciseType, setExerciseType] = useState("");
+    const [exerciseName, setExerciseName] = useState("Squats");
     const [sets, setSets] = useState(setObj);
     const [weight, setWeight] = useState(20);
 
     const navigate = useNavigate();
 
+
+    const handleClick = (e, param) => {
+        e.preventDefault()
+        let setName= 'set'.concat(param)
+        sets[setName] > 0
+            ? setSets({ ...sets, [setName]: sets[setName] - 1 })
+            : setSets({ ...sets, [setName]: 5 })
+    }
+
     const handleSubmitForm = async (e) => {
         e.preventDefault();
-        await exerciseEntry({ exerciseName: exerciseType, sets: Object.values(sets), weight: Number(weight) });
-        console.log({ exerciseType, sets: Object.values(sets), weight: Number(weight) })
+        await exerciseEntry({ exerciseName, sets: Object.values(sets), weight: Number(weight) });
+        console.log({ exerciseName, sets: Object.values(sets), weight: Number(weight) })
         // navigate("/");
     };
 
     return (
         <>
-            <h1>Workout Entry</h1>
+        <Stack direction='column' spacing={3} sx={{justifyContent: 'space-evenly'}}>
+        <Typography variant='h3'>{exerciseName}</Typography>
+        <Typography variant='h5'>Working Weight: {weight}kg</Typography>
+                
+        <Stack direction='row' spacing={2}>
+
+                <Button key="first-set" variant='outlined' color={"secondary"} onClick={(e) => handleClick(e, 1)}>{sets.set1}</Button>
+             
+                <Button key='second-set' variant='contained' onClick={(e) => handleClick(e, 2)}>{sets.set2}</Button>
+
+
+                <Button key='third-set' variant='contained' onClick={(e) => handleClick(e, 3)}>{sets.set3}</Button>
+
+
+                <Button key='fourth-set' variant='contained' onClick={(e) => handleClick(e, 4)}>{sets.set4}</Button>
+
+                <Button key='fifth-set' variant='contained' onClick={(e) => handleClick(e, 5)}>{sets.set5}</Button>
+</Stack>
             <form onSubmit={handleSubmitForm}>
-                <label>Exercise Name</label>
-                <input type="text" value={exerciseType} onChange={(e) => setExerciseType(e.target.value)}/>
-
-                <label>Set 1</label>
-                <input type="number" value={sets.set1} onChange={(e) => setSets({...sets, set1: e.target.value})}/>
-                <label>Set 2</label>
-                <input type="number" value={sets.set2} onChange={(e) => setSets({...sets, set2: e.target.value, })}/>
-                <label>Set 3</label>
-                <input type="number" value={sets.set3} onChange={(e) => setSets({...sets, set3: e.target.value, })}/>
-                <label>Set 4</label>
-                <input type="number" value={sets.set4} onChange={(e) => setSets({...sets, set4: e.target.value, })}/>
-                <label>Set 5</label>
-                <input type="number" value={sets.set5} onChange={(e) => setSets({...sets, set5: e.target.value, })}/>
-
-                <label>Weight Per Rep</label>
-                <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)}/>
-
-                <button type="submit">Log Workout</button>
+                <button type="submit">Finish Workout & Log</button>
             </form>
+            </Stack>
         </>
     );
 }
