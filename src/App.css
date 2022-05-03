@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.MuiTypography-h1 {
+font-family: 'Permanent Marker', cursive;
+}
+
 .App {
   text-align: center;
 }
@@ -5,3 +11,4 @@
 .navLogo {
   max-height: 50%;
 }
+

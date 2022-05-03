@@ -1,1 +1,0 @@
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
