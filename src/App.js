@@ -1,9 +1,6 @@
 import './App.css';
-// import { ListProjects } from './Pages/ListProjects';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-// import { AddProject } from './Pages/AddProject';
-// import { ProjectDetail } from "./Pages/ProjectDetail";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { EditProject } from './Pages/EditProject';
