@@ -17,6 +17,7 @@ import BottomNav from './components/BottomNav';
 import Loading from './components/utilities/Loading';
 import { ExerciseEntry } from './pages/ExerciseEntry';
 import Profile from './components/user/Profile';
+import { UserProviderWrapper } from './context/user.context';
 function App() {
   // For the example on line 23
   // const value = useContext(UserContext);
@@ -27,6 +28,7 @@ function App() {
     <ThemeProvider theme={customTheme}>
 
       <div className="App">
+      <UserProviderWrapper>
 
         {/* Example of how context works line below...
       Logged In user is: {value.user} */}
@@ -49,6 +51,7 @@ function App() {
         </Container>
         <Copyright />
         <BottomNav/>
+        </UserProviderWrapper>
       </div>        
       </ThemeProvider>
 
