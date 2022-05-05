@@ -2,8 +2,10 @@ import { React, useContext, useEffect, useState } from "react";
 import { UserContext, } from "../../context/user.context";
 import { updateUser } from '../../api'
 
-import { Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material"
+import { Icon, Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material"
 import Loading from '../utilities/Loading'
+import { Edit } from "@mui/icons-material";
+import { IsPrivate } from "../IsPrivate";
 
 
 function Profile() {
@@ -35,7 +37,8 @@ function Profile() {
 
 
   return (
-    (!user)
+    <IsPrivate>
+    {(!user)
       ? <Loading />
       : <Container component="main" maxWidth="xs">
         <Box
@@ -46,9 +49,11 @@ function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-
+          
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main', height: 56, width: 56 }}>
+          <Icon><Edit/></Icon>
           </Avatar>
+          
           <Typography component="h1" variant="h5">
             Profile
           </Typography>
@@ -119,6 +124,8 @@ function Profile() {
           </Box>
         </Box>
       </Container>
+    }
+      </IsPrivate>
   )
 }
 

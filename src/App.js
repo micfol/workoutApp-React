@@ -25,7 +25,6 @@ function App() {
 
         <Navbar />
         <TopBar />
-        <Toolbar />
         <Container maxWidth='xs'>
 
         <Routes>
