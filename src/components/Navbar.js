@@ -20,8 +20,11 @@ export const Navbar = () => {
                         <div>
                             <NavLink to="/signup">Signup</NavLink> 
                         </div>
+                        
                     </>}
-
+                <div>
+                    <NavLink to="/education">Education Library</NavLink> 
+                </div>
                 
                 {isLoggedIn && 
                 <>
@@ -40,43 +43,3 @@ export const Navbar = () => {
         </nav>
     )
 };
-
-    // eslint-disable-next-line no-lone-blocks
-    {/* // const { isLoggedIn, user, logoutUser } = useContext(UserContext);
-    // return (
-    //     <nav>
-    //         <div>
-    //             <NavLink
-    //                 className={({isActive}) => (isActive ? "nav-active" : "nav-inactive")} to="/">
-    //                 Projects
-    //             </NavLink>
-    //         </div>
-            
-    //         {!isLoggedIn && <>
-    //         <div>
-    //             <NavLink
-    //                 className={({isActive}) => (isActive ? "nav-active" :  "nav-inactive")} to="/signup">
-    //                 Signup
-    //             </NavLink>
-    //         </div>
-    //         <div>
-    //             <NavLink
-    //                 className={({isActive}) => (isActive ? "nav-active" :  "nav-inactive")} to="/login">
-    //                 Login
-    //             </NavLink>
-    //         </div>
-    //         </>}
-    //         {isLoggedIn && 
-    //             <>
-    //             <div>
-    //                 <NavLink
-    //                     className={({isActive}) => (isActive ? "nav-active" :  "nav-inactive")} to="/projects/add">
-    //                     Add Project
-    //                 </NavLink>
-    //             </div>
-    //                 <div>Welcome {user && user.username}</div>
-    //                 <button onClick={logoutUser}>Logout</button>
-    //             </>}
-            
-    //     </nav>
-    // ) */}
