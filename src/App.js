@@ -16,6 +16,7 @@ import { themeOptions } from './components/utilities/theme';
 import BottomNav from './components/BottomNav';
 import Loading from './components/utilities/Loading';
 import { ExerciseEntry } from './pages/ExerciseEntry';
+import Profile from './components/user/Profile';
 function App() {
   // For the example on line 23
   // const value = useContext(UserContext);
@@ -38,6 +39,7 @@ function App() {
    
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/workout-entry" element={<ExerciseEntry />} />
           <Route path="/addexercise" element={<AddExercise />} />
