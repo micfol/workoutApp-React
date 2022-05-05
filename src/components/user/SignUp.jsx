@@ -23,7 +23,7 @@ export default function SignUp() {
       ['username', 'firstName', 'lastName', 'email', 'password'].map((x) => [x, data.get(x)])
     ))
     event.target.reset()
-    navigate('/user')
+    navigate("/")
   };
 
   return (

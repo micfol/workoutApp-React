@@ -21,7 +21,7 @@ function UserProviderWrapper({children}) {
         const storeToken = localStorage.getItem("authToken");
 
         if (storeToken) {
-            //verify if the token is still valid
+            //verifies if the token is still valid
             (async() => {
                 try {
                     const response = await verify(storeToken);
@@ -55,7 +55,6 @@ function UserProviderWrapper({children}) {
     useEffect(() => {
         authenticateUser();
     }, []);
-
 
     return (
         <UserContext.Provider value={{ 
