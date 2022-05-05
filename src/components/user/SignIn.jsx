@@ -15,7 +15,7 @@ export default function SignIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const response = await login({ email: data.get('email'), password: data.get('password') });
+    const response = await login({ username: data.get('username'), password: data.get('password') });
     storeToken(response.data.authToken);
     authenticateUser();
     navigate("/");
