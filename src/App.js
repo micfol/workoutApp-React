@@ -3,67 +3,54 @@ import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Signup } from './pages/Signup';
-import { Login } from './pages/Login';
+import SignIn from './components/user/SignIn';
+import SignUp from './components/user/SignUp';
+import Copyright from './components/utilities/Copyright';
 import { Home } from './pages/Home';
 import { AddExercise } from './pages/AddExercise';
-import { ExerciseEntry } from './pages/ExerciseEntry';
-import FitnessByBodyPart from './components/FitnessByBodyPartCard';
-import axios from 'axios';
-import { EducationHome } from './pages/EducationHome';
-import { useEffect, useState } from 'react';
+import TopBar from './components/TopBar';
+import { Container, CssBaseline, Toolbar } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import { IsPrivate } from "./components/IsPrivate";
-
-
+import { themeOptions } from './components/utilities/theme';
+import BottomNav from './components/BottomNav';
+import Loading from './components/utilities/Loading';
+import { ExerciseEntry } from './pages/ExerciseEntry';
 function App() {
-
-  const apikey = process.env.REACT_APP_X_RAPIDAPI_KEY;
-  const getExerciseAPI = async () => {
-
-    const options = {
-      method: 'GET',
-      url: `https://exercisedb.p.rapidapi.com/exercises/`,
-      headers: {
-        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-        'X-RapidAPI-Key': apikey
-      }
-    };
-    
-    const response = await axios.request(options);
-      console.log(response.data);
-    return response.data;
-    }
-
-    const [fitness, setFitness] = useState([]);
-
-    async function getFitness(query, searchTerm) {
-      const queryType = {
-      "all" : "/",
-      "byId" : "/" + searchTerm,
-      "search" : "/search?q=" + searchTerm
-      };
-      const response = await axios.get("https://exercisedb.p.rapidapi.com/exercises" + queryType[query]);
-     setFitness(response.data);
-    };
-  
-    useEffect(() => {
-      getFitness("all")
-    }, []);
-
+  // For the example on line 23
+  // const value = useContext(UserContext);
+  // console.log('value from app:>> ', value);
+  // next Tuesday we will learn how to get users from the api that will be used on our projects.
+  const customTheme = createTheme(themeOptions)
   return (
-    <div className="App">
-      <ToastContainer />
-      <Navbar />
-      <Routes>
-        <Route path="/signup" element={<Signup />} /> 
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/exerciseEntry" element={<ExerciseEntry />} />
-        <Route path="/addexercise" element={<AddExercise />} />
-        <Route path="/education" element={<EducationHome />} />
-      </Routes>
-    </div>
-  );
+    <ThemeProvider theme={customTheme}>
+
+      <div className="App">
+
+        {/* Example of how context works line below...
+      Logged In user is: {value.user} */}
+        {/* <Navbar /> */}
+        <TopBar />
+        <Toolbar />
+        <Container maxWidth='xs'>
+
+        <Routes>
+   
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/workout-entry" element={<ExerciseEntry />} />
+          <Route path="/addexercise" element={<AddExercise />} />
+          <Route path="/loading" element={<Loading />} />
+
+        </Routes>
+        </Container>
+        <Copyright />
+        <BottomNav/>
+      </div>        
+      </ThemeProvider>
+
+      );
 }
 
-export default App;
+      export default App;
