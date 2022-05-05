@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
-import Copyright from './components/utilities/Copyright';
 import { Home } from './pages/Home';
 import { AddExercise } from './pages/AddExercise';
 import TopBar from './components/TopBar';
@@ -49,7 +48,6 @@ function App() {
 
         </Routes>
         </Container>
-        <Copyright />
         <BottomNav/>
         </UserProviderWrapper>
       </div>        

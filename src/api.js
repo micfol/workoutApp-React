@@ -8,6 +8,10 @@ export const signup = (user) => {
     return axios.post(`${baseURL}/signup`, user);
 }
 
+export const updateUser = (user) => {
+    return axios.post(`${baseURL}/updateuser`, user);
+}
+
 export const login = (user) => {
     return axios.post(`${baseURL}/login`, user);
 }
