@@ -1,5 +1,5 @@
 import { login } from "../../api";
-import * as React from 'react';
+import  {React, useContext} from 'react';
 import { FormControlLabel, Container, Avatar, Button, Checkbox, Link, Grid, Box, Typography, TextField, } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from '../utilities/Copyright';
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 export default function SignIn() {
 
   const navigate = useNavigate();
-  const { storeToken, authenticateUser } = React.useContext(UserContext);
+  const { storeToken, authenticateUser } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,9 +42,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
             label="Username"
             name="username"
+            autoComplete="username"
             autoFocus
           />
           <TextField
