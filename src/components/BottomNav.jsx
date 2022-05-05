@@ -1,6 +1,7 @@
-import { FitnessCenterOutlined, AutoGraphOutlined, SchoolOutlined } from '@mui/icons-material'
-import { Paper, BottomNavigation, BottomNavigationAction } from '@mui/material'
-import {useState, React } from 'react'
+import { FitnessCenterOutlined, AutoGraphOutlined, SchoolOutlined } from '@mui/icons-material';
+import { Paper, BottomNavigation, BottomNavigationAction } from '@mui/material';
+import {useState, React } from 'react';
+import { Link } from '@mui/material';
 
 function BottomNav() {
     const [value, setValue] = useState(null)
@@ -13,9 +14,9 @@ function BottomNav() {
                     setValue(newValue);
                 }}
             >
-                <BottomNavigationAction label='Learn' icon={<SchoolOutlined />} />
-                <BottomNavigationAction label='Workout' icon={<FitnessCenterOutlined />} />
-                <BottomNavigationAction label='Progress' icon={<AutoGraphOutlined />} />
+                <BottomNavigationAction label='Learn' href="/education" icon={<SchoolOutlined />} />
+                <BottomNavigationAction label='Workout' href="/workout-entry" icon={<FitnessCenterOutlined />} />
+                <BottomNavigationAction label='Progress' href="/progress" icon={<AutoGraphOutlined />} />
 
             </BottomNavigation>
         </Paper>)

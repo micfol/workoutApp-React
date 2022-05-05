@@ -1,8 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
 import { Home } from './pages/Home';
@@ -10,7 +8,6 @@ import { AddExercise } from './pages/AddExercise';
 import TopBar from './components/TopBar';
 import { Container, CssBaseline, Toolbar } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { IsPrivate } from "./components/IsPrivate";
 import { themeOptions } from './components/utilities/theme';
 import BottomNav from './components/BottomNav';
 import Loading from './components/utilities/Loading';
@@ -18,10 +15,7 @@ import { ExerciseEntry } from './pages/ExerciseEntry';
 import Profile from './components/user/Profile';
 import { UserProviderWrapper } from './context/user.context';
 function App() {
-  // For the example on line 23
-  // const value = useContext(UserContext);
-  // console.log('value from app:>> ', value);
-  // next Tuesday we will learn how to get users from the api that will be used on our projects.
+  
   const customTheme = createTheme(themeOptions)
   return (
     <ThemeProvider theme={customTheme}>
@@ -29,9 +23,7 @@ function App() {
       <div className="App">
       <UserProviderWrapper>
 
-        {/* Example of how context works line below...
-      Logged In user is: {value.user} */}
-        {/* <Navbar /> */}
+        <Navbar />
         <TopBar />
         <Toolbar />
         <Container maxWidth='xs'>
@@ -55,5 +47,4 @@ function App() {
 
       );
 }
-
       export default App;

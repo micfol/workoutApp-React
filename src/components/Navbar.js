@@ -7,7 +7,10 @@ export const Navbar = () => {
     const { isLoggedIn, user, logoutUser } = useContext(UserContext);
     return (
         <nav>
-            <img src="/PlaceholderLogo.png" style={{maxHeight: 100}} className="navLogo" alt="StongLiftr Logo"/>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
             <div>
                 <div>
                     <NavLink to="/">Home</NavLink> 
@@ -15,7 +18,7 @@ export const Navbar = () => {
                 {!isLoggedIn && 
                     <>
                         <div>
-                            <NavLink to="/login">Login</NavLink>
+                            <NavLink to="/sing-in">Sign In</NavLink>
                         </div>
                         <div>
                             <NavLink to="/signup">Signup</NavLink> 

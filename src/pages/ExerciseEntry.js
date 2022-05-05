@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { exerciseEntry } from "../api";
 import { useNavigate } from "react-router";
 import { Button, Stack, Typography} from "@mui/material";
+import { UserContext } from "../context/user.context";
 
 export const ExerciseEntry = () => {
 
@@ -13,6 +14,7 @@ export const ExerciseEntry = () => {
         set5: 5
     };
 
+    const value = useContext(UserContext);
     const [exerciseName, setExerciseName] = useState("Squats");
     const [sets, setSets] = useState(setObj);
     const [weight, setWeight] = useState(20);
@@ -30,9 +32,9 @@ export const ExerciseEntry = () => {
 
     const handleSubmitForm = async (e) => {
         e.preventDefault();
-        await exerciseEntry({ exerciseName, sets: Object.values(sets), weight: Number(weight) });
-        console.log({ exerciseName, sets: Object.values(sets), weight: Number(weight) })
-        // navigate("/");
+        await exerciseEntry({ exerciseName, sets: Object.values(sets), weight: Number(weight), user: value.user._id });
+        console.log({ exerciseName, sets: Object.values(sets), weight: Number(weight), user: value.user._id})
+        navigate("/");
     };
 
     return (
