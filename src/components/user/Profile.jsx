@@ -1,17 +1,21 @@
-import React from 'react'
-import { useContext } from "react";
+import { React, useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import { Container, Box, Avatar, Typography, Grid, TextField, Button, Link } from "@mui/material"
-
+import Loading from '../utilities/Loading'
 function Profile() {
 
-    const { user } = useContext(UserContext);
+    const value = useContext(UserContext);
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log(value)
 
-    const handleSubmit = () => {
-        console.log(user)
     }
-  return (
-    <Container component="main" maxWidth="xs">
+    console.log(value)
+    
+    return( 
+    value.isLoading
+    ? <Loading />
+    : <Container component="main" maxWidth="xs">
     <Box
       sx={{
         marginTop: 8,
@@ -30,10 +34,11 @@ function Profile() {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
-              autoComplete="given-name"
+              disabled
               name="firstName"
               required
               fullWidth
+              value='firstName'
               id="firstName"
               label="First Name"
               autoFocus
