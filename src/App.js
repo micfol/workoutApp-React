@@ -1,6 +1,5 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
 import { Home } from './pages/Home';
@@ -23,7 +22,6 @@ function App() {
       <div className="App">
       <UserProviderWrapper>
 
-        <Navbar />
         <TopBar />
         <Container maxWidth='xs'>
 
