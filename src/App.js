@@ -32,7 +32,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
-          <Route path="/workout-entry" element={<GroupExercises isWorkoutA />} />
+          <Route path="/workout-entry" element={<GroupExercises isWorkoutA={false} />} />
           <Route path="/addexercise" element={<AddExercise />} />
           <Route path="/loading" element={<Loading />} />
 

@@ -15,6 +15,7 @@ export const GroupExercises = (props) => {
     ? setWorkout(workoutA)
     : setWorkout(workoutB)
 
+    console.log('workout :>> ', workout);
 
     const handleClick = () => {
         console.log("You clicked a button.");
