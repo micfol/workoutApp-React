@@ -1,16 +1,16 @@
 export const workoutA = {
     squat: {
-        name: 'Squats',
+        exerciseName: 'Squats',
         weight: 20,
         sets: []
     },
     bench: {
-        name: 'Bench Press',
+        exerciseName: 'Bench Press',
         weight: 20,
         sets: []
     },
     row: {
-        name: 'Barbell Row',
+        exerciseName: 'Barbell Row',
         weight: 30,
         sets: []
     }
@@ -19,17 +19,17 @@ export const workoutA = {
 
 export const workoutB = {
     squat: {
-        name: 'Squats',
+        exerciseName: 'Squats',
         weight: 20,
         sets: []
     },
     military: {
-        name: 'Overhead Press',
+        exerciseName: 'Overhead Press',
         weight: 20,
         sets: []
     },
     deadlift: {
-        name: 'Deadlift',
+        exerciseName: 'Deadlift',
         weight: 40,
         sets: []
     }
