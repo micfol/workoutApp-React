@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Button, Stack, Typography} from "@mui/material";
 
 export const SingleExercise = (props) => {
@@ -19,9 +19,9 @@ export const SingleExercise = (props) => {
 
     return (
         <>
-        <Stack direction='column' spacing={3} sx={{justifyContent: 'space-evenly'}}>
-            <Typography variant='h3'>{exerciseName}</Typography>
-            <Typography variant='h5'>Working Weight: {workingWeight}kg</Typography>
+        <Stack direction='column' spacing={2} sx={{justifyContent: 'space-evenly'}}>
+            <Typography variant='h4'>{exerciseName}</Typography>
+            <Typography variant='h6'>Working Weight: {workingWeight}kg</Typography>
                     
             <Stack direction='row' spacing={2}>
                     {/* <Button key="first-set" variant='contained' onClick={(e) => onClick(e, 1)}>{sets[exerciseName].set1}</Button>

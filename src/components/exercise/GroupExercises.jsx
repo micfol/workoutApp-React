@@ -1,20 +1,20 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { SingleExercise } from "./SingleExercise";
 import { workoutA, workoutB } from './workouts';
 
 export const GroupExercises = (props) => {
 
     const {isWorkoutA} = props
-
     console.log('isWorkoutA :>> ', isWorkoutA);
-
     
     const [workout, setWorkout] = useState(null);
 
-    isWorkoutA 
-    ? setWorkout(workoutA)
-    : setWorkout(workoutB)
-
+    useEffect(() => {
+        isWorkoutA 
+            ? setWorkout(workoutA)
+            : setWorkout(workoutB)
+    }, )
+    
     console.log('workout :>> ', workout);
 
     const handleClick = () => {
