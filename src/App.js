@@ -13,6 +13,7 @@ import Loading from './components/utilities/Loading';
 import { ExerciseEntry } from './pages/ExerciseEntry';
 import Profile from './components/user/Profile';
 import { UserProviderWrapper } from './context/user.context';
+import { GroupExercises } from './components/exercise/GroupExercises';
 function App() {
   
   const customTheme = createTheme(themeOptions)
@@ -31,7 +32,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
-          <Route path="/workout-entry" element={<ExerciseEntry />} />
+          <Route path="/workout-entry" element={<GroupExercises isWorkoutA />} />
           <Route path="/addexercise" element={<AddExercise />} />
           <Route path="/loading" element={<Loading />} />
 

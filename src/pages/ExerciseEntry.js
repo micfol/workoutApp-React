@@ -21,7 +21,6 @@ export const ExerciseEntry = () => {
 
     const navigate = useNavigate();
 
-
     const handleClick = (e, param) => {
         e.preventDefault()
         let setName= 'set'.concat(param)
@@ -40,27 +39,25 @@ export const ExerciseEntry = () => {
     return (
         <>
         <Stack direction='column' spacing={3} sx={{justifyContent: 'space-evenly'}}>
-        <Typography variant='h3'>{exerciseName}</Typography>
-        <Typography variant='h5'>Working Weight: {weight}kg</Typography>
+            <Typography variant='h3'>{exerciseName}</Typography>
+            <Typography variant='h5'>Working Weight: {weight}kg</Typography>
+                    
+            <Stack direction='row' spacing={2}>
+
+                    <Button key="first-set" variant='outlined' color={"secondary"} onClick={(e) => handleClick(e, 1)}>{sets.set1}</Button>
                 
-        <Stack direction='row' spacing={2}>
+                    <Button key='second-set' variant='contained' onClick={(e) => handleClick(e, 2)}>{sets.set2}</Button>
 
-                <Button key="first-set" variant='outlined' color={"secondary"} onClick={(e) => handleClick(e, 1)}>{sets.set1}</Button>
-             
-                <Button key='second-set' variant='contained' onClick={(e) => handleClick(e, 2)}>{sets.set2}</Button>
+                    <Button key='third-set' variant='contained' onClick={(e) => handleClick(e, 3)}>{sets.set3}</Button>
 
+                    <Button key='fourth-set' variant='contained' onClick={(e) => handleClick(e, 4)}>{sets.set4}</Button>
 
-                <Button key='third-set' variant='contained' onClick={(e) => handleClick(e, 3)}>{sets.set3}</Button>
-
-
-                <Button key='fourth-set' variant='contained' onClick={(e) => handleClick(e, 4)}>{sets.set4}</Button>
-
-                <Button key='fifth-set' variant='contained' onClick={(e) => handleClick(e, 5)}>{sets.set5}</Button>
-</Stack>
+                    <Button key='fifth-set' variant='contained' onClick={(e) => handleClick(e, 5)}>{sets.set5}</Button>
+            </Stack>
             <form onSubmit={handleSubmitForm}>
                 <button type="submit">Finish Workout & Log</button>
             </form>
-            </Stack>
+        </Stack>
         </>
     );
-}
+};

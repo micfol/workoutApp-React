@@ -1,5 +1,5 @@
 import { React, useContext, useEffect, useState } from "react";
-import { UserContext, } from "../../context/user.context";
+import { UserContext } from "../../context/user.context";
 import { updateUser } from '../../api'
 
 import { Icon, Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material"
