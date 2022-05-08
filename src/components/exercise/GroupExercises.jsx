@@ -23,11 +23,9 @@ export const GroupExercises = (props) => {
         const workoutType = Object.keys(workout)[0] //workoutA or workoutB
         const workoutExercises = Object.values(workout[workoutType]) //Array of the three exercise objects
         
-        workoutExercises.forEach((x) => { 
-            x.user = value.user._id         // Adds _id to each exercise object.
-        });
         console.log('workoutExercises', workoutExercises)
-        await exerciseEntry({workoutType, workoutExercises })
+        const response = await exerciseEntry({workoutType, workoutExercises, user: value.user._id })
+        console.log('response', response)
     }
 
     const handleClick = (e) => {
