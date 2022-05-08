@@ -11,7 +11,9 @@ function TopBar() {
       <React.Fragment>
       <AppBar>     
       <Toolbar>
-        <BearClaw fontSize='large'/>
+        <Link href="/">
+          <BearClaw fontSize='large'/>
+        </Link>
         <Typography variant='h1' sx={{flexGrow: 1}}>StrongLiftr</Typography>
         <Link underline="none" href="/profile">
         <Avatar color='secondary' alt={value.user? `${value.user.firstName} ${value.user.lastName}` : null}>

@@ -26,7 +26,7 @@ function UserProviderWrapper({children}) {
                 try {
                     const response = await verify(storeToken);
                     const user = response.data;
-                console.log('returned context user:', user)
+                // console.log('returned context user:', user)
                     setUser(user);
                     setIsLoggedIn(true);
                     setIsLoading(false);
