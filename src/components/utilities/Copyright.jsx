@@ -8,5 +8,6 @@ export default function Copyright(props) {
         {new Date().getFullYear()}
         {'.'}
       </Typography>
+      
     );
   }

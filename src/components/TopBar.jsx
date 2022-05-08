@@ -3,7 +3,7 @@ import { Avatar, Link, Toolbar, Typography } from '@mui/material'
 import { AppBar } from '@mui/material'
 import BearClaw from './utilities/Icons/BearClaw'
 import {UserContext} from '../context/user.context'
-
+import HomeIcon from './utilities/Icons/TestIcon'
 
 function TopBar() {
  const value = React.useContext(UserContext)
@@ -12,6 +12,7 @@ function TopBar() {
       <AppBar>     
       <Toolbar>
         <Link href="/">
+        <HomeIcon />
           <BearClaw fontSize='large'/>
         </Link>
         <Typography variant='h1' sx={{flexGrow: 1}}>StrongLiftr</Typography>

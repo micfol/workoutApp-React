@@ -2,7 +2,7 @@ export const workoutA = {
     squat: {
         exerciseName: 'Squats',
         weight: 20,
-        sets: []
+        sets: [0,0,0,0,0]
     },
     bench: {
         exerciseName: 'Bench Press',

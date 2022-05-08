@@ -14,17 +14,16 @@ export const GroupExercises = (props) => {
 
     useEffect(() => {
         isWorkoutA 
-            ? setWorkout({workoutA})
-            : setWorkout({workoutB})
+            ? setWorkout(workoutA)
+            : setWorkout(workoutB)
     }, [isWorkoutA])
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const workoutType = Object.keys(workout)[0] //workoutA or workoutB
-        const workoutExercises = Object.values(workout[workoutType]) //Array of the three exercise objects
+        const workoutExercises = Object.values(workout)
+        console.log('workoutExercises', workoutExercises) //Array of the three exercise objects
         
-        console.log('workoutExercises', workoutExercises)
-        const response = await exerciseEntry({workoutType, workoutExercises, user: value.user._id })
+        const response = await exerciseEntry({isWorkoutA, workoutExercises, user: value.user._id })
         console.log('response', response)
     }
 
