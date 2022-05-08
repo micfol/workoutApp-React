@@ -19,7 +19,7 @@ export default function CustomizedProgressBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <p>Strongliftr Program Progress:</p>
-      <BorderLinearProgress variant="determinate" value={50} />
+      <BorderLinearProgress variant="determinate" value={25} />
     </Box>
   );
 }

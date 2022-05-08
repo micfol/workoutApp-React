@@ -1,8 +1,9 @@
 import { React, useState, useEffect, useContext } from 'react'
 import { SingleExercise } from "./SingleExercise";
 import { workoutA, workoutB } from './workouts';
-import {UserContext} from '../../context/user.context.js'
-import { exerciseEntry } from '../../api.js'
+import {UserContext} from '../../context/user.context.js';
+import { exerciseEntry } from '../../api.js';
+import Button from '@mui/material/Button';;
 
 export const GroupExercises = (props) => {
    
@@ -40,7 +41,7 @@ export const GroupExercises = (props) => {
         <SingleExercise exerciseName='Dead Lift' workingWeight='20' onClick={handleClick} />
         
         <form onSubmit={handleSubmit}>
-        <button type="submit">Finish Workout & Log</button>
+        <Button variant="contained" type="submit">Finish Workout & Log</Button>
         </form>
         </>
     );
