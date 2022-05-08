@@ -18,7 +18,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 export default function CustomizedProgressBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <p>Strongliftr Program Progress:</p>
+      <p>Your Progress to Program Goal:</p>
       <BorderLinearProgress variant="determinate" value={25} />
     </Box>
   );

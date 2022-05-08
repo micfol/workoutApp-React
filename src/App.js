@@ -38,7 +38,7 @@ function App() {
 
         </Routes>
         </Container>
-        <BottomNav/>
+        <BottomNav />
         </UserProviderWrapper>
       </div>        
       </ThemeProvider>
