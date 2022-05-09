@@ -6,7 +6,6 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { UserContext } from "../../context/user.context";
 import { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import { progress } from "../../api";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -18,7 +17,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
+    backgroundColor: theme.palette.secondary.main
   },
 }));
 
@@ -26,9 +25,8 @@ export default function CustomizedProgressBar() {
   const value = useContext(UserContext);
   const [goalProgress, setGoalProgress] = useState(0);
 
-  useEffect(() => {
-    const user = value ? value.user : null;
-    
+  useEffect(() => {    
+    const user = value.user
     const getProgress = async () => {
       const response = await progress(user._id);
       setGoalProgress(response.data);

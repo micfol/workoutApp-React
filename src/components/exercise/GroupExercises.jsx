@@ -1,19 +1,15 @@
 import { React, useState, useEffect, useContext } from 'react'
-import { SingleExercise } from "./SingleExercise";
 import { workoutA, workoutB } from './workouts';
 import { UserContext } from '../../context/user.context.js';
 import { exerciseEntry } from '../../api.js';
-import {Button, Container} from '@mui/material';
-import {IsPrivate} from '../IsPrivate.js'
+import { Button, Container, Stack, Typography } from '@mui/material';
 import Loading from '../utilities/Loading';
+
 
 export const GroupExercises = (props) => {
 
-    const value = useContext(UserContext)
-
-    console.log('value.user', value.user)
     const { isWorkoutA } = props
-
+    const value = useContext(UserContext)
     const [workout, setWorkout] = useState(null);
 
     useEffect(() => {
@@ -22,43 +18,59 @@ export const GroupExercises = (props) => {
             : setWorkout(workoutB)
     }, [isWorkoutA])
 
+    const handleClick = (e, exercise, i) => {
+        e.preventDefault();
+        const copy= {...workout[exercise]};
+        copy.sets[i] > 0 ? copy.sets[i] -- : copy.sets[i] = 5
+        setWorkout({...workout, [exercise]: copy})
+    }
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         const workoutExercises = Object.values(workout)
-        console.log('Object.entries(workout)', Object.entries(workout)) //Array of the three exercise objects
-
         const response = await exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id })
         console.log('response', response)
+
     }
 
-    const handleClick = (e) => {
-        console.log("You clicked a button.");
-    };
+    
 
-   
+
 
 
     return (
-        <IsPrivate>
-            {(!value.user)
+            !value.user
                 ? <Loading />
                 : <Container>
                     {
-                        Object.values(workout).map((exercise) => {
+                        Object.entries(workout).map((exercise) => {
+                            const {exerciseName, weight, sets} = exercise[1]
                             return (
-                                <SingleExercise
-                                    exerciseName={exercise.exerciseName}
-                                    workingWeight={exercise.weight}
-                                    onClick={handleClick}
-                                />
-                            )
+                                <Stack key={exercise[0]} spacing={2}>
+                                    <Stack direction='row' sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <Typography variant='h5'>{exerciseName}</Typography>
+                                        <Typography variant='h6'>{weight}kg</Typography>
+                                    </Stack>
+
+                                    <Stack direction='row' spacing={1}>
+                                        {sets.map((set, index, array) => {
+                                            return (
+                                                <>
+                                                <Button key={`${exercise[0]}-${index}`} fullWidth variant='outlined' onClick={(e) => handleClick(e, exercise[0], index)}>{set}</Button>
+                                    
+                                                </>
+                                            )
+                                        })}
+                                    </Stack>
+                                </Stack>
+                            );
                         })
                     }
+
                     <form onSubmit={handleSubmit}>
-                        <Button variant="contained" type="submit">Finish Workout & Log</Button>
+                        <Button variant="contained" type="submit" sx={{ m: 2 }}>Finish Workout & Log</Button>
                     </form>
                 </Container>
-            }
-        </IsPrivate>
+            
     );
 };

@@ -8,7 +8,7 @@ export const workoutA = {
     bench: {
         exerciseName: 'Bench Press',
         weight: 20,
-        sets: [0,0,0,0,0]
+        sets: [5,0,5,0,0]
     },
     row: {
         exerciseName: 'Barbell Row',
