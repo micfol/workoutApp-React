@@ -12,7 +12,6 @@ function TopBar() {
       <AppBar>     
       <Toolbar>
         <Link href="/">
-        <HomeIcon />
           <BearClaw fontSize='large'/>
           </Link>
         <Typography variant='h1' sx={{flexGrow: 1}}>StrongLiftr</Typography>

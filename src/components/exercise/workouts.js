@@ -8,12 +8,12 @@ export const workoutA = {
     bench: {
         exerciseName: 'Bench Press',
         weight: 20,
-        sets: []
+        sets: [0,0,0,0,0]
     },
     row: {
         exerciseName: 'Barbell Row',
         weight: 30,
-        sets: []
+        sets: [0,0,0,0,0]
     }
 
 };
@@ -22,16 +22,18 @@ export const workoutB = {
     squat: {
         exerciseName: 'Squats',
         weight: 20,
-        sets: []
+        sets: [0,0,0,0,0]
     },
     military: {
         exerciseName: 'Overhead Press',
         weight: 20,
-        sets: []
+        sets: [0,0,0,0,0]
     },
     deadlift: {
         exerciseName: 'Deadlift',
         weight: 40,
-        sets: []
+        sets: [0]
+    
+    
     }
 };
