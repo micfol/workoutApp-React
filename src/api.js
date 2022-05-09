@@ -1,6 +1,5 @@
 import axios from 'axios';
 const baseURL = `${process.env.REACT_APP_WORKOUT_API}/api`;
-const fitnessURL= `${process.env.REACT_APP_X_RAPIDAPI_API}`;
 
 // USER ROUTES ---------------------------------------------
 
@@ -21,7 +20,7 @@ export const verify = (storedToken) => {
     });
 }
 
-// USER DATA ROUTES ---------------------------------------------
+// USER DATA ROUTES ------------------------------------------
 
 export const getAllWorkouts = () => {
     return axios.get(`${baseURL}/workout`);
@@ -55,32 +54,10 @@ export const exerciseEntry = (exerciseEntry) => {
     return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
 }
 
-// EXTERNAL API ROUTES ---------------------------------------------
+// EDUCATION ROUTES ------------------------------------------
 
-export const referenceWorkOutByBodyType = () => {
-    return axios.get(`${fitnessURL}/bodyPartList`);
+export const education = (education) => {
+    return axios.get(`${baseURL}/exerciseentry`, exerciseEntry)
 }
 
-export const referenceWorkOutByBodyPart = () => {
-    return axios.get(`${fitnessURL}/bodyPart/%7BbodyPart%7D`);
-}
 
-export const referenceWorkOutById = () => {
-    return axios.get(`${fitnessURL}/%7Bid%7D`);
-}
-
-export const referenceWorkOutByName = () => {
-    return axios.get(`${fitnessURL}/name/%7Bname%7D`);
-}
-
-export const referenceWorkOutTargetMuscles = () => {
-    return axios.get(`${fitnessURL}/targetList`);
-}
-
-export const referenceWorkOutTargetMuscle = () => {
-    return axios.get(`${fitnessURL}/target/%7Btarget%7D`);
-}
-
-export const referenceWorkOutAllExercises = () => {
-    return axios.get(`${fitnessURL}`);
-}
