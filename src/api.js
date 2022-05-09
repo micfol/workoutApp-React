@@ -54,10 +54,12 @@ export const exerciseEntry = (exerciseEntry) => {
     return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
 }
 
+export const progress = (user) => {
+    return axios.get(`${baseURL}/progress/${user}`)
+}
+
 // EDUCATION ROUTES ------------------------------------------
 
 export const education = (education) => {
     return axios.get(`${baseURL}/exerciseentry`, exerciseEntry)
 }
-
-
