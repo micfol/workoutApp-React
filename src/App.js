@@ -5,17 +5,18 @@ import SignUp from './components/user/SignUp';
 import { Home } from './pages/Home';
 import { AddExercise } from './pages/AddExercise';
 import TopBar from './components/TopBar';
-import { Container, CssBaseline, Toolbar } from '@mui/material';
+import { Container } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { themeOptions } from './components/utilities/theme';
 import BottomNav from './components/BottomNav';
 import Loading from './components/utilities/Loading';
-import { ExerciseEntry } from './pages/ExerciseEntry';
 import Profile from './components/user/Profile';
 import { UserProviderWrapper } from './context/user.context';
 import { GroupExercises } from './components/exercise/GroupExercises';
+import { EducationHome } from './pages/EducationHome'
+
 function App() {
-  
+
   const customTheme = createTheme(themeOptions)
   return (
     <ThemeProvider theme={customTheme}>
@@ -25,9 +26,7 @@ function App() {
 
         <TopBar />
         <Container maxWidth='xs'>
-
         <Routes>
-   
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
@@ -35,7 +34,7 @@ function App() {
           <Route path="/workout-entry" element={<GroupExercises />} />
           <Route path="/addexercise" element={<AddExercise />} />
           <Route path="/loading" element={<Loading />} />
-
+          <Route path="/education" element={<EducationHome/>} />
         </Routes>
         </Container>
         <BottomNav />

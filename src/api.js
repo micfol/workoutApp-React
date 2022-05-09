@@ -60,6 +60,6 @@ export const progress = (user) => {
 
 // EDUCATION ROUTES ------------------------------------------
 
-export const education = (education) => {
-    return axios.get(`${baseURL}/exerciseentry`, exerciseEntry)
+export const education = () => {
+    return axios.get(`${baseURL}/education`)
 }
