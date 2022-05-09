@@ -21,6 +21,7 @@ export const Home = () => {
         <h2>{value.user? `${value.user.firstName} ${value.user.lastName}` : null}</h2>
         <ProgressBar />
         <br></br>
+        <p>Next Workout Exercises:</p>
         <UpNextBox />
         <br></br>
         <Button variant="contained" startIcon={<BoltIcon />} onClick={handleClick}>Start Workout</Button>
