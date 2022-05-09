@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Avatar, Link, Toolbar, Typography } from '@mui/material'
-import { AppBar } from '@mui/material'
-import BearClaw from './utilities/Icons/BearClaw'
-import {UserContext} from '../context/user.context'
-import HomeIcon from './utilities/Icons/TestIcon'
+import * as React from 'react';
+import { Avatar, Link, Toolbar, Typography } from '@mui/material';
+import { AppBar } from '@mui/material';
+import BearClaw from './utilities/Icons/BearClaw';
+import {UserContext} from '../context/user.context';
+
 
 function TopBar() {
  const value = React.useContext(UserContext)
@@ -14,7 +14,7 @@ function TopBar() {
         <Link href="/">
         <HomeIcon />
           <BearClaw fontSize='large'/>
-        </Link>
+          </Link>
         <Typography variant='h1' sx={{flexGrow: 1}}>StrongLiftr</Typography>
         <Link underline="none" href="/profile">
         <Avatar color='secondary' alt={value.user? `${value.user.firstName} ${value.user.lastName}` : null}>

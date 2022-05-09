@@ -1,9 +1,8 @@
 import { React, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/user.context";
-import { updateUser } from '../../api'
-
-import { Icon, Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material"
-import Loading from '../utilities/Loading'
+import { updateUser } from '../../api';
+import { Icon, Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material";
+import Loading from '../utilities/Loading';
 import { Edit } from "@mui/icons-material";
 import { IsPrivate } from "../IsPrivate";
 
@@ -12,27 +11,26 @@ function Profile() {
 
   const { storeToken, authenticateUser, user, setUser, isLoading, logoutUser } = useContext(UserContext);
 
-  const [readOnly, setReadOnly] = useState({ readOnly: true, variant: 'standard' })
+  const [readOnly, setReadOnly] = useState({ readOnly: true, variant: 'standard' });
 
   const onclickEditUser = (e) => {
     e.preventDefault()
     setReadOnly({ readOnly: false, variant: 'outlined' })
-  }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = new FormData(e.currentTarget)
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     const signUpObj = Object.fromEntries(
       ['username', 'firstName', 'lastName', 'email', 'password']
         .map((x) => [x, data.get(x)])
-    )
-    signUpObj._id = user._id
-    const response = await updateUser(signUpObj)
+    );
+    signUpObj._id = user._id;
+    const response = await updateUser(signUpObj);
     storeToken(response.data.authToken);
     authenticateUser();
-    setUser(response.data.updatedUser)
-    setReadOnly({ readOnly: true, variant: 'standard' })
-
+    setUser(response.data.updatedUser);
+    setReadOnly({ readOnly: true, variant: 'standard' });
   }
 
 

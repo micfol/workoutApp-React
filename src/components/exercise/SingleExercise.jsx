@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Button, Stack, Typography} from "@mui/material";
 
 export const SingleExercise = (props) => {
@@ -15,7 +15,7 @@ export const SingleExercise = (props) => {
 
     // const [exerciseName, setExerciseName] = useState("Squats");
     // const [weight, setWeight] = useState(20);
-    // const [sets, setSets] = useState(setObj);
+    const [sets, setSets] = useState(setObj);
 
     return (
         <>
@@ -28,9 +28,9 @@ export const SingleExercise = (props) => {
                     <Button key='second-set' variant='contained' onClick={(e) => onClick(e, 2)}>{sets[exerciseName].set2}</Button>
                     <Button key='third-set' variant='contained' onClick={(e) => onClick(e, 3)}>{sets[exerciseName].set3}</Button>
                     <Button key='fourth-set' variant='contained' onClick={(e) => onClick(e, 4)}>{sets[exerciseName].set4}</Button>
-                    <Button key='fifth-set' variant='contained' onClick={(e) => onClick(e, 5)}>{sets[exerciseName].set5}</Button>
-                     */}
-                    <Button key="test" onClick={props.onClick}>Test Button</Button>
+                    <Button key='fifth-set' variant='contained' onClick={(e) => onClick(e, 5)}>{sets[exerciseName].set5}</Button> */}
+                    
+                    <Button  key="test" onClick={props.onClick}>Test Button</Button>
             </Stack>
         </Stack>
         </>
