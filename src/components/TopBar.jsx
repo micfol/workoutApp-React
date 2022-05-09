@@ -4,7 +4,6 @@ import { AppBar } from '@mui/material';
 import BearClaw from './utilities/Icons/BearClaw';
 import {UserContext} from '../context/user.context';
 
-
 function TopBar() {
  const value = React.useContext(UserContext)
  return ( !value.isLoading &&
@@ -24,7 +23,7 @@ function TopBar() {
       </AppBar>
       <Toolbar/>
       </React.Fragment>
-  )
+  );
 }
 
 export default TopBar

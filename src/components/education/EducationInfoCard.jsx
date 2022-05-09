@@ -7,7 +7,13 @@ import Typography from '@mui/material/Typography';
 export const EducationInfoCard = (props) => {
     const { info } = props;
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <>
+        <Card sx={{ maxWidth: 450 }}>
+          <CardContent>
+            <Typography gutterBottom variant="h1" component="div">
+              <h6>Exercise Name: {info.nameOfExercise}</h6>
+            </Typography>
+          </CardContent>
           <CardMedia
             component="img"
             height="auto"
@@ -15,22 +21,15 @@ export const EducationInfoCard = (props) => {
             alt="Visualization of the exercise motion."
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              
+            <Typography variant="caption" color="text.primary">
+              <h3>Equipment Required: {info.equipment}</h3>
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Exercise Name: {info.nameOfExercise}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Target Muscle Group: {info.target}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Equipment Required: {info.equipment}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Instructions: {info.instructions}
+            <Typography variant="body4" color="text.primary" textAlign="left">
+              <p><strong>Instructions:</strong> {info.instructions}</p>
             </Typography>
           </CardContent>
         </Card>
+        <br></br>
+        </>
       );
     }
