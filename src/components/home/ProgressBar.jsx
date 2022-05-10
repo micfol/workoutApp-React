@@ -29,7 +29,8 @@ export default function CustomizedProgressBar() {
     const user = value.user;
     const getProgress = async () => {
       const response = await progress(user._id);
-      setGoalProgress(response.data);
+      const fractionalProgress = (response.data.length / 36) * 100
+      setGoalProgress(fractionalProgress);
     };
     getProgress();
   }, [value]);

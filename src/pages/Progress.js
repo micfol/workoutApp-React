@@ -7,20 +7,14 @@ import { progress } from "../api";
 export const Progress = () => {
 
     const value = useContext(UserContext);
-    const [sessionData, setSessionData] = useState([]);
-
-    async function getWorkoutHistory() {
-        const user = value.user._id;
-        const response = await progress(user);
-        setSessionData(response.data)
-        console.log('response.data :>> ', response.data);
-    }
+    
 
     useEffect(() => {
-        getWorkoutHistory()
+        value.getWorkoutHistory()
+        console.log('value.sessionData', value.sessionData)
     }, [value.user]);
 
-    const list = sessionData.map((exercise) => {
+    const list = value.sessionData.map((exercise) => {
         return <WorkoutSessionCard info={exercise} key={exercise._id}/>
     });
     

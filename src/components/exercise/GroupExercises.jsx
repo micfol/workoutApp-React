@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 
 export const GroupExercises = (props) => {
 
-    const isWorkoutA  = true;
+    const isWorkoutA  = false;
     const value = useContext(UserContext);
     const [workout, setWorkout] = useState(null);
     const navigate = useNavigate();

@@ -15,7 +15,7 @@ export default function WorkoutSessionCard(props) {
            {info.exercises[0].createdAt.slice(0,10)}
         </Typography>
         <Typography variant="body1" textAlign="left">
-          Workout B
+        Workout {info.isWorkoutA ? 'A' : 'B'}  
         </Typography>
         <Typography variant="body2" textAlign="left">
           {info.exercises[0].exerciseName} @ {info.exercises[0].weight}kg

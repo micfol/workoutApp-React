@@ -10,11 +10,7 @@ export const Home = () => {
  
     const navigate = useNavigate();
     const value = useContext(UserContext)
-    const handleClick = (e) => {
-        e.preventDefault();
-        navigate('/workout-entry')
-    };
-
+    
     return (
         <>
         <h4>Welcome to StrongLiftr</h4>
@@ -24,7 +20,7 @@ export const Home = () => {
         <p>Next Workout Exercises:</p>
         <UpNextBox />
         <br></br>
-        <Button variant="contained" startIcon={<BoltIcon />} onClick={handleClick}>Start Workout</Button>
+        <Button variant="contained" startIcon={<BoltIcon />} href={'/workout-entry'}>Start Workout</Button>
         </>
     )
 }
