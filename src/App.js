@@ -14,6 +14,7 @@ import Profile from './components/user/Profile';
 import { UserProviderWrapper } from './context/user.context';
 import { GroupExercises } from './components/exercise/GroupExercises';
 import { EducationHome } from './pages/EducationHome'
+import { Progress } from './pages/Progress';
 
 function App() {
 
@@ -25,16 +26,17 @@ function App() {
       <UserProviderWrapper>
 
         <TopBar />
-        <Container maxWidth='xs' sx={{height: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', pb: 10}}>
+        <Container maxWidth='xs' sx={{minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', pb: 10}}>
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/workout-entry" element={<GroupExercises />} />
-          <Route path="/addexercise" element={<AddExercise />} />
+          {/* <Route path="/addexercise" element={<AddExercise />} /> */}
           <Route path="/loading" element={<Loading />} />
-          <Route path="/education" element={<EducationHome/>} />
+          <Route path="/education" element={<EducationHome />} />
+          <Route path="/progress" element={<Progress />} />
         </Routes>
         </Container>
         <BottomNav />

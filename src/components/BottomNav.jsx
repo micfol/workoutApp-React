@@ -1,7 +1,6 @@
 import { FitnessCenterOutlined, AutoGraphOutlined, SchoolOutlined } from '@mui/icons-material';
 import { Paper, BottomNavigation, BottomNavigationAction } from '@mui/material';
 import {useState, React } from 'react';
-import { Link } from '@mui/material';
 
 function BottomNav() {
     const [value, setValue] = useState(null)
@@ -19,7 +18,7 @@ function BottomNav() {
                 <BottomNavigationAction label='Progress' href="/progress" icon={<AutoGraphOutlined />} />
 
             </BottomNavigation>
-        </Paper>)
+        </Paper>);
 }
 
 export default BottomNav

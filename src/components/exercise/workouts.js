@@ -1,7 +1,6 @@
 export const workoutA = {
     squat: {
         exerciseName: 'Squats',
-        // exerciseIcon: add reference to icon library
         weight: 20,
         sets: [0,0,0,0,0]
     },

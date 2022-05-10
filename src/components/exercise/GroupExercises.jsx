@@ -1,43 +1,46 @@
-import { React, useState, useEffect, useContext } from 'react'
+import { React, useState, useEffect, useContext } from 'react';
 import { workoutA, workoutB } from './workouts';
 import { UserContext } from '../../context/user.context.js';
 import { exerciseEntry } from '../../api.js';
-import { Button, Container, Divider, Stack, Typography } from '@mui/material';
+import { Button, Divider, Stack, Typography } from '@mui/material';
 import Loading from '../utilities/Loading';
-import Icons from '../utilities/Icons'
+import Icons from '../utilities/Icons';
 import styled from '@emotion/styled';
-
+import { useNavigate } from "react-router";
 
 export const GroupExercises = (props) => {
 
-    const { isWorkoutA } = props
-    const value = useContext(UserContext)
+    const isWorkoutA  = true;
+    const value = useContext(UserContext);
     const [workout, setWorkout] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        isWorkoutA
+        !isWorkoutA
             ? setWorkout(workoutA)
             : setWorkout(workoutB)
-    }, [isWorkoutA])
+    }, [isWorkoutA]);
 
     const handleClick = (e, exercise, i) => {
         e.preventDefault();
         const copy = { ...workout[exercise] };
-        copy.sets[i] > 0 ? copy.sets[i]-- : copy.sets[i] = 5
-        setWorkout({ ...workout, [exercise]: copy })
+        copy.sets[i] > 0 ? copy.sets[i]-- : copy.sets[i] = 5;
+        setWorkout({ ...workout, [exercise]: copy });
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        const workoutExercises = Object.values(workout)
-        const response = await exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id })
-        console.log('response', response)
+        e.preventDefault();
+        const workoutExercises = Object.values(workout);
+        const response = await exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id });
+        console.log('response', response);
+        console.log('isWorkoutA :>> ', isWorkoutA);
+        navigate("/");
     }
 
     const SetButton = styled(Button)(() => ({
         fontFamily: 'Permanent Marker',
         fontSize: '1.3rem',
-    }))
+    }));
 
     return (
         !value.user
@@ -87,6 +90,6 @@ export const GroupExercises = (props) => {
                     <Button variant="contained" type="submit" sx={{ m: 2 }}>Finish Workout & Log</Button>
                 </form>
             </Stack>
-    )
+    );
 }
 

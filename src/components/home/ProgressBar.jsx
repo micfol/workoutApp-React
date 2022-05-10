@@ -7,7 +7,6 @@ import LinearProgress, {
 import { UserContext } from "../../context/user.context";
 import { useContext, useEffect, useState } from "react";
 import { progress } from "../../api";
-import { Button } from "@mui/material";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -18,21 +17,20 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
-})); 
+}));
 
 export default function CustomizedProgressBar() {
   const value = useContext(UserContext);
   const [goalProgress, setGoalProgress] = useState(0);
 
-  useEffect(() => {    
-    const user = value.user
+  useEffect(() => {
+    const user = value.user;
     const getProgress = async () => {
       const response = await progress(user._id);
       setGoalProgress(response.data);
     };
-
     getProgress();
   }, [value]);
 

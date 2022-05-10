@@ -15,17 +15,17 @@ import { useNavigate } from "react-router";
 
 export default function SignUp() {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
     const signUpObj = Object.fromEntries(
       ['username', 'firstName', 'lastName', 'email', 'password'].map((x) => [x, data.get(x)])
-    )
-    await signup(signUpObj)
-    navigate('/profile')
-    event.target.reset()
+    );
+    await signup(signUpObj);
+    navigate('/profile');
+    event.target.reset();
   };
 
   return (

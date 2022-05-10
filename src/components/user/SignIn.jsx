@@ -13,7 +13,7 @@ export default function SignIn() {
   const { storeToken, authenticateUser } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const data = new FormData(event.currentTarget);
     const response = await login({ username: data.get('username'), password: data.get('password') });
     storeToken(response.data.authToken);

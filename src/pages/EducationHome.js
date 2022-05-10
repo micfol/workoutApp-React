@@ -8,7 +8,7 @@ export const EducationHome = () => {
 
     async function getExerciseInfo() {
       const response = await education();
-      setExerciseInfo(response.data)
+      setExerciseInfo(response.data);
     };
   
     useEffect(() => {
@@ -16,7 +16,7 @@ export const EducationHome = () => {
     }, []);
 
     const list = exerciseInfo.map((exercise) => {
-        return <EducationInfoCard info={exercise} />
+        return <EducationInfoCard info={exercise} key={exercise._id}/>
     });
 
     return (

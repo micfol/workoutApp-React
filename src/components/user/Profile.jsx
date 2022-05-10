@@ -14,8 +14,8 @@ function Profile() {
   const [readOnly, setReadOnly] = useState({ readOnly: true, variant: 'standard' });
 
   const onclickEditUser = (e) => {
-    e.preventDefault()
-    setReadOnly({ readOnly: false, variant: 'outlined' })
+    e.preventDefault();
+    setReadOnly({ readOnly: false, variant: 'outlined' });
   };
 
   const handleSubmit = async (e) => {
@@ -127,7 +127,7 @@ function Profile() {
       </Container>
     }
       </IsPrivate>
-  )
+  );
 }
 
 export default Profile
