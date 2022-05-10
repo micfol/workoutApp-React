@@ -25,7 +25,7 @@ function App() {
       <UserProviderWrapper>
 
         <TopBar />
-        <Container maxWidth='xs'>
+        <Container maxWidth='xs' sx={{height: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', pb: 10}}>
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

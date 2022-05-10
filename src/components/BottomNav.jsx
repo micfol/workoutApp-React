@@ -6,7 +6,7 @@ import { Link } from '@mui/material';
 function BottomNav() {
     const [value, setValue] = useState(null)
     return (
-        <Paper sx={{ position: 'sticky', bottom: 0, left: 0, right: 0 }} elevation={3}>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation
                 showLabels
                 value={value}
