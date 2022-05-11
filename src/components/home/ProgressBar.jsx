@@ -21,23 +21,12 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedProgressBar() {
-  const value = useContext(UserContext);
-  const [goalProgress, setGoalProgress] = useState(0);
-
-  useEffect(() => {
-    const user = value.user;
-    const getProgress = async () => {
-      const response = await progress(user._id);
-      setGoalProgress(response.data);
-    };
-    getProgress();
-  }, [value]);
-
+export default function CustomizedProgressBar(props) {
+ 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <p>Your Progress to Program Goal:</p>
-      <BorderLinearProgress variant="determinate" value={goalProgress} />
+      <BorderLinearProgress variant="determinate" value={props.goalProgress} />
     </Box>
   );
 }

@@ -11,19 +11,20 @@ import { themeOptions } from './components/utilities/theme';
 import BottomNav from './components/BottomNav';
 import Loading from './components/utilities/Loading';
 import Profile from './components/user/Profile';
-import { UserProviderWrapper } from './context/user.context';
+import { UserContext } from './context/user.context';
 import { GroupExercises } from './components/exercise/GroupExercises';
 import { EducationHome } from './pages/EducationHome'
 import { Progress } from './pages/Progress';
+import { getAllWorkouts, progress} from './api'
+import { useEffect, useContext, useMemo } from 'react';
 
 function App() {
-
+  
   const customTheme = createTheme(themeOptions)
   return (
     <ThemeProvider theme={customTheme}>
 
       <div className="App">
-      <UserProviderWrapper>
 
         <TopBar />
         <Container maxWidth='xs' sx={{minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', pb: 10}}>
@@ -40,7 +41,6 @@ function App() {
         </Routes>
         </Container>
         <BottomNav />
-        </UserProviderWrapper>
       </div>        
       </ThemeProvider>
 

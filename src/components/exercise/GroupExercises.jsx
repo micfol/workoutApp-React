@@ -1,6 +1,6 @@
 import { React, useState, useEffect, useContext } from 'react';
 import { workoutA, workoutB } from './workouts';
-import { UserContext } from '../../context/user.context.js';
+import { UserContext, getLocalUser } from '../../context/user.context.js';
 import { exerciseEntry } from '../../api.js';
 import { Button, Divider, Stack, Typography } from '@mui/material';
 import Loading from '../utilities/Loading';
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 
 export const GroupExercises = (props) => {
 
-    const isWorkoutA  = true;
+    const isWorkoutA  = props.isWorkoutA;
     const value = useContext(UserContext);
     const [workout, setWorkout] = useState(null);
     const navigate = useNavigate();

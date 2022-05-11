@@ -3,6 +3,21 @@ import { verify } from "../api";
 
 const UserContext = createContext();
 
+
+const setLocalUser = (user) => {
+        const userAsString = JSON.stringify(user)
+        localStorage.setItem("user", userAsString)
+    };
+const getLocalUser = () => {
+        const userAsString = localStorage.getItem("user")
+        return JSON.parse(userAsString)
+    };
+const removeLocalUser = () => {
+        localStorage.removeItem("user")
+        localStorage.removeItem("workoutHistory")
+    };
+
+
 function UserProviderWrapper({children}) {
 
     const [user, setUser] = useState(null);
@@ -26,7 +41,8 @@ function UserProviderWrapper({children}) {
                 try {
                     const response = await verify(storeToken);
                     const user = response.data;
-                // console.log('returned context user:', user)
+                    console.log('returned context user:', user)
+                    setLocalUser(user)
                     setUser(user);
                     setIsLoggedIn(true);
                     setIsLoading(false);
@@ -49,6 +65,7 @@ function UserProviderWrapper({children}) {
     const logoutUser = () => {
         removeToken();
         authenticateUser();
+        removeLocalUser()    
     };
 
     // Allows the user to stay logged in when refreshing the page
@@ -71,4 +88,4 @@ function UserProviderWrapper({children}) {
     )
 }
 
-export { UserProviderWrapper, UserContext };
+export { UserProviderWrapper, UserContext, getLocalUser, setLocalUser, removeLocalUser };
