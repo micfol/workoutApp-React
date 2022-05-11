@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { verify } from "../api";
+import { verify, progress } from "../api";
 
 const UserContext = createContext();
 
@@ -23,6 +23,13 @@ function UserProviderWrapper({children}) {
     const [user, setUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [sessionData, setSessionData] = useState([]);
+
+    const getWorkoutHistory = async () => {
+        const response = await progress(user._id);
+        setSessionData(response.data)
+    }
+
 
     const storeToken = (token) => {
         localStorage.setItem("authToken", token);
@@ -37,7 +44,7 @@ function UserProviderWrapper({children}) {
 
         if (storeToken) {
             //verifies if the token is still valid
-            (async() => {
+            (async () => {
                 try {
                     const response = await verify(storeToken);
                     const user = response.data;
@@ -46,14 +53,14 @@ function UserProviderWrapper({children}) {
                     setUser(user);
                     setIsLoggedIn(true);
                     setIsLoading(false);
-                } catch(e) {
+                } catch (e) {
                     setUser(null);
                     setIsLoggedIn(false);
                 }
                 finally {
                     setIsLoading(false);
                 }
-            }) ()
+            })()
 
         } else {
             setUser(null);
@@ -74,15 +81,18 @@ function UserProviderWrapper({children}) {
     }, []);
 
     return (
-        <UserContext.Provider value={{ 
-                user, 
-                setUser, 
-                isLoggedIn, 
-                storeToken, 
-                authenticateUser, 
-                logoutUser,
-                isLoading
-                }}>
+        <UserContext.Provider value={{
+            user,
+            setUser,
+            sessionData,
+            setSessionData,
+            getWorkoutHistory,
+            isLoggedIn,
+            storeToken,
+            authenticateUser,
+            logoutUser,
+            isLoading
+        }}>
             {children}
         </UserContext.Provider>
     )
