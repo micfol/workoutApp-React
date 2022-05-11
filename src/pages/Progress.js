@@ -8,11 +8,10 @@ export const Progress = () => {
 
     const value = useContext(UserContext);
     
-
     useEffect(() => {
         value.getWorkoutHistory()
-        console.log('value.sessionData', value.sessionData)
-    }, [value.user]);
+        // console.log('value.sessionData', value.sessionData)
+    }, [value.user, value.sessionData]);
 
     const list = value.sessionData.map((exercise) => {
         return <WorkoutSessionCard info={exercise} key={exercise._id}/>

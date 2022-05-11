@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
 import { Home } from './pages/Home';
-import { AddExercise } from './pages/AddExercise';
 import TopBar from './components/TopBar';
 import { Container } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
