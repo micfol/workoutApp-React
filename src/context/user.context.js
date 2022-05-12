@@ -23,7 +23,6 @@ function UserProviderWrapper({children}) {
     const [user, setUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [sessionData, setSessionData] = useState([]);
 
     const storeToken = (token) => {
         localStorage.setItem("authToken", token);
@@ -60,6 +59,7 @@ function UserProviderWrapper({children}) {
             setUser(null);
             setIsLoggedIn(false);
             setIsLoading(false);
+            removeLocalUser()
         }
     };
 

@@ -1,32 +1,31 @@
 import { React, useState, useEffect, useContext } from 'react';
 import { workoutA, workoutB } from './workouts';
 import { UserContext, getLocalUser } from '../../context/user.context.js';
-import { exerciseEntry, getAllWorkouts } from '../../api.js';
+import { addWorkout, getAllWorkouts } from '../../api.js';
 import { Button, Divider, Stack, Typography } from '@mui/material';
 import Loading from '../utilities/Loading';
 import Icons from '../utilities/Icons';
 import styled from '@emotion/styled';
-import { useNavigate } from "react-router";
+import { useNavigate, } from "react-router";
 
 
-export const GroupExercises = () => {
+export const GroupExercises = (props) => {
 
     const value = useContext(UserContext);
     const [workout, setWorkout] = useState(null);
-    const [isWorkoutA, setIsWorkoutA] = useState(true)
     const [workoutData, setWorkoutData] = useState([])
     const navigate = useNavigate();
+    const isWorkoutA = props.isWorkoutA
+  
 
     useEffect(() => {
         const user = getLocalUser();
         const allWorkouts =  getAllWorkouts(user._id)
-        setWorkoutData(allWorkouts) 
-        const wasWorkoutA = workoutData[0] ? workoutData[0].isWorkouA : true
-        setIsWorkoutA(!wasWorkoutA)
+        
         isWorkoutA
             ? setWorkout(workoutA)
             : setWorkout(workoutB)
-    }, [isWorkoutA]);
+    }, [isWorkoutA, value]);
 
     const handleClick = (e, exercise, i) => {
         e.preventDefault();
@@ -38,8 +37,9 @@ export const GroupExercises = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const workoutExercises = Object.values(workout);
-        exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id });
-        navigate("/");
+        console.log('addWorkout: ', { isWorkoutA, workoutExercises, user: value.user._id })
+        addWorkout({ isWorkoutA, workoutExercises, user: value.user._id });
+        navigate("/progress");
     }
 
     const SetButton = styled(Button)(() => ({
@@ -48,7 +48,7 @@ export const GroupExercises = () => {
     }));
 
     return (
-        !value.user
+        value.isLoading
             ? <Loading />
             : <Stack spacing={2} sx={{ py: 2 }}  divider={<Divider/>} justifyContent='space-evenly'>
                 {
@@ -74,6 +74,8 @@ export const GroupExercises = () => {
                                                 return {color: 'secondary', variant: 'contained'}
                                             }
                                         }
+
+                                        
                                         return (
                                             <SetButton
                                                 key={`${exercise[0]}-${index}`}

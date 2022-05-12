@@ -23,13 +23,16 @@ export const verify = (storedToken) => {
 
 // USER DATA ROUTES ------------------------------------------
 
-export const exerciseEntry = async (exerciseEntry) => {
-    await axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
+export const getAllWorkouts = async (user) => {
+    const response = await axios.get(`${baseURL}/workout/${user}`);
+    console.log('getAllWorkouts Response', response)
+    return (response.data)
 }
-
-export const getAllWorkouts =  async (user) => {
-     const response = await axios.get(`${baseURL}/progress/${user}`);
-     return(response.data)
+export const addWorkout =  (workoutObj) => {
+     return axios.post(`${baseURL}/workout`, workoutObj);
+}
+export const deleteWorkout =  (workoutId) => {
+    return axios.delete(`${baseURL}/workout/${workoutId}`)
 }
 
 
