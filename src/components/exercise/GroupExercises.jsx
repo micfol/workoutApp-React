@@ -1,22 +1,29 @@
 import { React, useState, useEffect, useContext } from 'react';
 import { workoutA, workoutB } from './workouts';
 import { UserContext, getLocalUser } from '../../context/user.context.js';
-import { exerciseEntry } from '../../api.js';
+import { exerciseEntry, getAllWorkouts } from '../../api.js';
 import { Button, Divider, Stack, Typography } from '@mui/material';
 import Loading from '../utilities/Loading';
 import Icons from '../utilities/Icons';
 import styled from '@emotion/styled';
 import { useNavigate } from "react-router";
 
-export const GroupExercises = (props) => {
 
-    const isWorkoutA  = props.isWorkoutA;
+export const GroupExercises = () => {
+
     const value = useContext(UserContext);
     const [workout, setWorkout] = useState(null);
+    const [isWorkoutA, setIsWorkoutA] = useState(true)
+    const [workoutData, setWorkoutData] = useState([])
     const navigate = useNavigate();
 
     useEffect(() => {
-        !isWorkoutA
+        const user = getLocalUser();
+        const allWorkouts =  getAllWorkouts(user._id)
+        setWorkoutData(allWorkouts) 
+        const wasWorkoutA = workoutData[0] ? workoutData[0].isWorkouA : true
+        setIsWorkoutA(!wasWorkoutA)
+        isWorkoutA
             ? setWorkout(workoutA)
             : setWorkout(workoutB)
     }, [isWorkoutA]);
@@ -31,9 +38,7 @@ export const GroupExercises = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const workoutExercises = Object.values(workout);
-        const response = await exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id });
-        console.log('response', response);
-        console.log('isWorkoutA :>> ', isWorkoutA);
+        exerciseEntry({ isWorkoutA, workoutExercises, user: value.user._id });
         navigate("/");
     }
 

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { verify, progress } from "../api";
+import { verify } from "../api";
 
 const UserContext = createContext();
 
@@ -24,12 +24,6 @@ function UserProviderWrapper({children}) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [sessionData, setSessionData] = useState([]);
-
-    const getWorkoutHistory = async () => {
-        const response = await progress(user._id);
-        setSessionData(response.data)
-    }
-
 
     const storeToken = (token) => {
         localStorage.setItem("authToken", token);
@@ -84,9 +78,6 @@ function UserProviderWrapper({children}) {
         <UserContext.Provider value={{
             user,
             setUser,
-            sessionData,
-            setSessionData,
-            getWorkoutHistory,
             isLoggedIn,
             storeToken,
             authenticateUser,

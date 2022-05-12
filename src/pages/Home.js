@@ -16,14 +16,12 @@ export const Home = () => {
         const user = getLocalUser();
         const allWorkouts = getAllWorkouts(user._id)
         setWorkoutData(allWorkouts) 
-        console.log('workoutData', workoutData)
         const isWorkoutA = true || !workoutData[0].isWorkoutA
         const goalProgress = 0 || Number((workoutData.length/36)*100)
         setUpNext({
             isWorkoutA: isWorkoutA, 
             goalProgress: goalProgress
         });
-        console.log(upNext);
         }, [])
 
     return (
