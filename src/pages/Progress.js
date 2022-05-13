@@ -13,7 +13,7 @@ export const Progress = () => {
     useEffect(() => {
         value.getWorkoutHistory()
         console.log('value.sessionData', value.sessionData)
-    }, [value, value.user, value.sessionData]);
+    }, [value.user, value.sessionData.length]);
 
     const list = value.sessionData.map((exercise) => {
         return <WorkoutSessionCard info={exercise} key={exercise._id}/>

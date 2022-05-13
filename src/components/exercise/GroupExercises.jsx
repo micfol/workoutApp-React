@@ -10,14 +10,27 @@ import { useNavigate } from "react-router";
 import Box from "@mui/material/Box";
 
 export const GroupExercises = (props) => {
-  const isWorkoutA = false;
-  const value = useContext(UserContext);
-  const [workout, setWorkout] = useState(null);
+
+  const value = useContext(UserContext);  
   const navigate = useNavigate();
 
+  const [workout, setWorkout] = useState(null);
+  const [isWorkoutA, setIsWorkoutA] = useState(true)
+
   useEffect(() => {
-    !isWorkoutA ? setWorkout(workoutA) : setWorkout(workoutB);
-  }, [isWorkoutA]);
+    value.getWorkoutHistory()
+    console.log('GroupExercise value.sessionData', value.sessionData)
+    
+    if (value.sessionData.length === 0) {
+      setIsWorkoutA(true)
+    } 
+    else (value.sessionData[0].isWorkoutA === true)
+    ? setIsWorkoutA(false)
+    : setIsWorkoutA(true)
+
+    isWorkoutA ? setWorkout(workoutA) : setWorkout(workoutB);
+
+  }, [value.user, isWorkoutA, value.sessionData.length]);
 
   const handleClick = (e, exercise, i) => {
     e.preventDefault();
@@ -48,6 +61,7 @@ export const GroupExercises = (props) => {
     <Loading />
   ) : (
     <Box sx={{}}>
+      <Typography variant='h6'>{isWorkoutA ? 'Workout A' : 'Workout B'}</Typography>
       <Stack
         spacing={2}
         sx={{ py: 2 }}

@@ -20,7 +20,6 @@ const style = {
 
 export default function WorkoutSessionCard(props) {
   const { info } = props;
-  console.log(info);
   return (
     <Box sx={{...style, borderRadius: '15' }} mb={4} >
       <Paper elevation={6}>
