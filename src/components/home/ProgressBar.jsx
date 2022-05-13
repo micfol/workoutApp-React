@@ -7,6 +7,7 @@ import LinearProgress, {
 import { UserContext } from "../../context/user.context";
 import { useContext, useEffect, useState } from "react";
 import { progress } from "../../api";
+import { Typography } from "@mui/material";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -36,8 +37,8 @@ export default function CustomizedProgressBar() {
   }, [value]);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <p>Your Progress to Program Goal:</p>
+    <Box m={'2rem'}>
+      <Typography variant="b1">Progress to Program Goal:</Typography>
       <BorderLinearProgress variant="determinate" value={goalProgress} />
     </Box>
   );

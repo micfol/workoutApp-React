@@ -2,6 +2,8 @@ import WorkoutSessionCard from "../components/progress/WorkoutSessionCard";
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from "../context/user.context";
 import { progress } from "../api";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 
 
 export const Progress = () => {
@@ -19,7 +21,14 @@ export const Progress = () => {
     
     return (
         <>
-        <h4>{value.user? `${value.user.firstName} ${value.user.lastName}'s ` : null}Progress Page</h4>
+        <Box m={'2rem'}>
+            <Typography 
+            variant="p1" 
+            fontSize="1.5rem"
+            >
+                {value.user? `${value.user.firstName} ${value.user.lastName}'s ` : null}Progress Page
+            </Typography>
+        </Box>
         {list}
         </>
     );

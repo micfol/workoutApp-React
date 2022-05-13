@@ -25,6 +25,7 @@ const style = {
 const DeleteButton = styled(Button)(() => ({
   fontFamily: 'Permanent Marker',
   fontSize: '1.3rem',
+  outlined: true,
 }));
 
 export default function DeleteCardModal(props) {
@@ -60,10 +61,12 @@ export default function DeleteCardModal(props) {
           sx={{ fontSize: 28 }}
           textAlign="center"
           id="parent-modal-title">Delete Workout Entry!!</Typography>
-          <p id="parent-modal-description">
-            Are you sure you want to complete this action? This cannot be
-            undone.
-          </p>
+          <Box m={'2rem'}>
+            <Typography variant="p1">
+              Are you sure you want to complete this action? This cannot be
+              undone.
+            </Typography>
+          </Box>
           <Button onClick={(e) => handleDelete(workoutId)}><DeleteButton color="error">- Delete My Entry -</DeleteButton></Button>
         </Box>
       </Modal>
