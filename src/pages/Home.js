@@ -1,5 +1,5 @@
 import { UserContext } from "../context/user.context";
-import { useContext } from "react";
+import { useContext, useState, useEffect} from "react";
 import ProgressBar from "../components/home/ProgressBar";
 import UpNextBox from "../components/home/UpNextBox";
 import Button from "@mui/material/Button";
@@ -15,6 +15,21 @@ const homeCardStyle = {
 
 export const Home = () => {
   const value = useContext(UserContext);
+
+  const [isWorkoutA, setIsWorkoutA] = useState(true)
+
+  useEffect(() => {
+    value.getWorkoutHistory()
+    console.log('Home value.sessionData', value.sessionData)
+    
+    if (value.sessionData.length === 0) {
+      setIsWorkoutA(true)
+    } 
+    else (value.sessionData[0].isWorkoutA === true)
+    ? setIsWorkoutA(false)
+    : setIsWorkoutA(true)
+
+  }, [value.user, isWorkoutA, value.sessionData.length]);
 
   return (
     <IsPrivate>
@@ -34,9 +49,9 @@ export const Home = () => {
         </Box>
         <ProgressBar />
         <Box mb={'2rem'}>
-            <Typography variant="p1">Next Workout Exercises:</Typography>
+            <Typography variant="p1">Up Next:  Workout {isWorkoutA ? 'A' : 'B'}</Typography>
         </Box>    
-        <UpNextBox />
+        <UpNextBox isWorkoutA={isWorkoutA} />
         <Box mt={'2rem'}>
             <Button
             variant="contained"

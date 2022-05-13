@@ -20,7 +20,7 @@ export default function UpNextBox(props) {
         backgroundColor: "#D3D3D3",
       }}
     >
-      {!isWorkoutA ? (
+      {isWorkoutA ? (
         <Stack
           direction="row"
           justifyContent="center"
