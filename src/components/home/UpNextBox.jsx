@@ -7,6 +7,7 @@ import OverheadPressIcon from "../utilities/Icons/OverheadPressIcon";
 import DeadliftIcon from "../utilities/Icons/DeadliftIcon";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
+import { Typography } from "@mui/material";
 
 export default function UpNextBox(props) {
   const { isWorkoutA } = props;
@@ -15,7 +16,7 @@ export default function UpNextBox(props) {
     <Box
       sx={{
         p: 3,
-        mx: "auto",
+        mx: '6 rem',
         backgroundColor: "#D3D3D3",
       }}
     >
@@ -25,19 +26,19 @@ export default function UpNextBox(props) {
           justifyContent="center"
           alignItems="center"
           divider={<Divider orientation="vertical" flexItem />}
-          spacing={2}
+          spacing={1}
         >
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <SquatsIcon />
-            <p>Squats</p>
+            <Typography variant="p1">Squats</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <BenchPressIcon />
-            <p>Bench Press</p>
+            <Typography variant="p1">Bench Press</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <BarbellRowIcon />
-            <p>Barbell Rows</p>
+            <Typography variant="p1">Barbell Rows</Typography>
           </Stack>
         </Stack>
       ) : (
@@ -50,15 +51,15 @@ export default function UpNextBox(props) {
         >
           <Stack direction="column" alignItems="center" sx={{ width: "25%" }}>
             <SquatsIcon />
-            <p>Squats</p>
+            <Typography variant="p1">Squats</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "38%" }}>
             <OverheadPressIcon />
-            <p>Overhead Press</p>
+            <Typography variant="p1">Overhead Press</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "25%" }}>
             <DeadliftIcon />
-            <p>Deadlift</p>
+            <Typography variant="p1">Deadlift</Typography>
           </Stack>
         </Stack>
       )}

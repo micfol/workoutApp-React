@@ -13,6 +13,14 @@ export const themeOptions = {
         fontFamily: 'Permanent Marker',
         fontSize: '2.5rem',
       },
+      b1: {
+        fontFamily: 'Permanent Marker',
+        fontSize: '1rem'
+      },
+      p1: {
+        fontFamily: 'Open Sans',
+        fontSize: '1rem'
+      }
     },
     props: {
       MuiButtonBase: {

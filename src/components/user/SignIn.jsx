@@ -5,6 +5,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from '../utilities/Copyright';
 import { UserContext } from "../../context/user.context";
 import { useNavigate } from "react-router";
+import styled from '@emotion/styled';
 
 
 export default function SignIn() {
@@ -21,6 +22,11 @@ export default function SignIn() {
     navigate('/');
   }
 
+  const SetTextField = styled(TextField)(() => ({
+    fontFamily: 'Open Sans',
+    fontSize: '1rem',
+  }));
+
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -34,7 +40,7 @@ export default function SignIn() {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="p1" fontSize={'2rem'}>
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

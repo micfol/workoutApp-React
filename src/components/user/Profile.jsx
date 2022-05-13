@@ -52,7 +52,7 @@ function Profile() {
           <Icon><Edit/></Icon>
           </Avatar>
           
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h1" fontSize="2rem">
             Profile
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -66,10 +66,8 @@ function Profile() {
                   fullWidth
                   defaultValue={user.firstName}
                   id="firstName"
-
                   label="First Name"
                   autoFocus
-
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
