@@ -15,7 +15,7 @@ export const EducationInfoCard = (props) => {
         <Paper elevation={9}>
         <Card sx={{ maxWidth: 450 }}>  
             <CardContent>
-              <Typography gutterBottom variant="h1">
+              <Typography variant="e2">
                 Exercise Name: {info.nameOfExercise}
               </Typography>
             </CardContent>

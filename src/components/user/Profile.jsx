@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useState } from "react";
+import { React, useContext, useState } from "react";
 import { UserContext } from "../../context/user.context";
 import { updateUser } from '../../api';
 import { Icon, Container, Box, Avatar, Typography, Grid, TextField, Button } from "@mui/material";
@@ -55,7 +55,7 @@ function Profile() {
           <Typography component="h1" variant="h1" fontSize="2rem">
             Profile
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -112,13 +112,13 @@ function Profile() {
             </Grid>
             {readOnly.readOnly
               ? <Button onClick={onclickEditUser} fullWidth variant="outlined" sx={{ mt: 2, mb: .5 }} >
-                Edit User
+                <Typography variant="h1" sx={{ fontSize: '1rem' }}>Edit User</Typography>
               </Button>
               : <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: .5 }} >
-                Update
+              <Typography variant="h1" sx={{ fontSize: '1rem' }}>Update</Typography>
               </Button>}
-              <Button onClick={logoutUser} fullWidth variant="outlined" sx={{ mt: 2, mb: 1 }} >
-              Logout
+              <Button onClick={logoutUser} fullWidth variant="outlined" color='secondary' sx={{ mt: 2, mb: 1 }} >
+              <Typography variant="h1" sx={{ fontSize: '1rem' }}>Logout</Typography>
               </Button>
           </Box>
         </Box>

@@ -20,7 +20,7 @@ export const verify = (storedToken) => {
     });
 }
 
-// USER DATA ROUTES ------------------------------------------
+// USER WORKOUT ROUTES ------------------------------------------
 
 export const getAllWorkouts = () => {
     return axios.get(`${baseURL}/workout`);
@@ -38,21 +38,11 @@ export const addWorkout = (project) => {
     return axios.post(`${baseURL}/workout`, project);
 }
 
-export const updateWorkout = (updatedWorkout) => {
-    return axios.put(`${baseURL}/workout/${updatedWorkout._id}`, updatedWorkout);
-}
-
-export const upload = (uploadData) => {
-    return axios.post(`${baseURL}/upload`, uploadData)
-}
-
-export const addExercise = (addExercise) => {
-    return axios.post(`${baseURL}/exerciseType`, addExercise);
-}
-
 export const exerciseEntry = (exerciseEntry) => {
     return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
 }
+
+// PROGRESS ROUTES -------------------------------------------
 
 export const progress = (user) => {
     return axios.get(`${baseURL}/progress/${user}`)

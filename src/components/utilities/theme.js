@@ -20,6 +20,18 @@ export const themeOptions = {
       p1: {
         fontFamily: 'Open Sans',
         fontSize: '1rem'
+      },
+      p2: {
+        fontFamily: 'Permanent Marker',
+        fontSize: '1.4rem'
+      },
+      e1: {
+        fontFamily: 'Permanent Marker',
+        fontSize: '1rem'
+      },
+      e2: {
+        fontFamily: 'Permanent Marker',
+        fontSize: '1.7rem'
       }
     },
     props: {

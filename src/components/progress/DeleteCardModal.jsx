@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
-import { deleteWorkout, getWorkout } from "../../api";
-import theme from '../utilities/theme'
+import { deleteWorkout } from "../../api";
 import styled from '@emotion/styled';
 
 const style = {
@@ -24,7 +23,7 @@ const style = {
 
 const DeleteButton = styled(Button)(() => ({
   fontFamily: 'Permanent Marker',
-  fontSize: '1.3rem',
+  fontSize: '1rem',
   outlined: true,
 }));
 

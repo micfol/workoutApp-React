@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { UserProviderWrapper } from "./context/user.context";
+import 'animate.css';
 
 const container = document.getElementById('root')
 

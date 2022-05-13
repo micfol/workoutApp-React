@@ -5,8 +5,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from '../utilities/Copyright';
 import { UserContext } from "../../context/user.context";
 import { useNavigate } from "react-router";
-import styled from '@emotion/styled';
-
 
 export default function SignIn() {
 
@@ -19,19 +17,16 @@ export default function SignIn() {
     const response = await login({ username: data.get('username'), password: data.get('password') });
     storeToken(response.data.authToken);
     authenticateUser();
+    event.preventDefault();
     navigate('/');
   }
-
-  const SetTextField = styled(TextField)(() => ({
-    fontFamily: 'Open Sans',
-    fontSize: '1rem',
-  }));
 
   return (
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
           marginTop: 2,
+          marginBottom: 1,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -40,7 +35,7 @@ export default function SignIn() {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="p1" fontSize={'2rem'}>
+        <Typography component="h1" variant="h1" fontSize={'2rem'}>
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -74,16 +69,16 @@ export default function SignIn() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            <Typography variant="h1" sx={{ fontSize: "1rem" }}>Sign In</Typography>
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              {/* <Link href="#" variant="body2">
                 Forgot password?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item>
-              <Link href="/signup" variant="body2">
+              <Link href="/signup" variant="p1">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

@@ -32,7 +32,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
           <Route path="/workout-entry" element={<GroupExercises />} />
-          {/* <Route path="/addexercise" element={<AddExercise />} /> */}
           <Route path="/loading" element={<Loading />} />
           <Route path="/education" element={<EducationHome />} />
           <Route path="/progress" element={<Progress />} />

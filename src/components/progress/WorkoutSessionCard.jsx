@@ -5,7 +5,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import DeleteCardModal from "./DeleteCardModal";
-import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import SquatsIcon from "../utilities/Icons/SquatsIcon";
 import OverheadPressIcon from "../utilities/Icons/OverheadPressIcon";
@@ -52,7 +51,7 @@ export default function WorkoutSessionCard(props) {
               </Grid>
               <Grid item xs={8}>
                 <Typography
-                  variant="p1"
+                  variant="e1"
                   textAlign="center"
                   style={{ height: "50%" }}
                 >
@@ -61,7 +60,7 @@ export default function WorkoutSessionCard(props) {
                 </Typography>
                 <Typography
                   display="block"
-                  variant="p1"
+                  variant="e1"
                   textAlign="center"
                   style={{ height: "50%" }}
                 >
@@ -72,11 +71,11 @@ export default function WorkoutSessionCard(props) {
                 {info.isWorkoutA ? <OverheadPressIcon /> : <BenchPressIcon />}
               </Grid>
               <Grid item xs={8}>
-                <Typography variant="p1" textAlign="center">
+                <Typography variant="e1" textAlign="center">
                   {info.exercises[1].exerciseName} @ {info.exercises[1].weight}
                   kg
                 </Typography>
-                <Typography variant="p1" textAlign="center" display="block">
+                <Typography variant="e1" textAlign="center" display="block">
                   {info.exercises[1].sets.join(` `)}
                 </Typography>
               </Grid>
@@ -85,11 +84,11 @@ export default function WorkoutSessionCard(props) {
               </Grid>
               <Grid item xs={8}>
                 <Typography 
-                  variant="p1" 
+                  variant="e1" 
                   textAlign="center">
                     {info.exercises[2].exerciseName} @ {info.exercises[2].weight}kg
                 </Typography>
-                <Typography variant="p1" textAlign="center" display="block">
+                <Typography variant="e1" textAlign="center" display="block">
                   {info.exercises[2].sets.join(` `)}
                 </Typography>
               </Grid>

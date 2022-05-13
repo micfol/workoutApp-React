@@ -41,10 +41,14 @@ export default function SignUp() {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography 
+          component="h1" 
+          variant="h1"
+          sx={{ fontSize: "2rem" }}
+          >
           Sign up
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ m: 3 }}>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -104,16 +108,18 @@ export default function SignUp() {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 1, mb: 1 }}
+            sx={{ mt: 2, mb: 1 }}
           >
-            Sign Up
+            <Typography variant="h1" sx={{ fontSize: "1rem" }}>Sign Up</Typography>
           </Button>
           <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Link href="/signin" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
+            <Box mt="1rem">
+              <Grid item>
+                <Link href="/signin" variant="p1">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Box>
           </Grid>
         </Box>
       </Box>
