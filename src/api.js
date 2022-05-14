@@ -45,6 +45,20 @@ export const exerciseEntry = (exerciseEntry) => {
 export const fetchWorkingWeight =  (user) => {
      return  axios.get(`${baseURL}/workingweight/${user}`);
 }
+
+
+export const setLocalWeight = (workingWeight) => {
+    const workingWeightString = JSON.stringify(workingWeight)
+    localStorage.setItem("workingWeight", workingWeightString)
+};
+export const getLocalWeight = () => {
+    const workingWeightString = localStorage.getItem("workingWeight")
+    return JSON.parse(workingWeightString)
+};
+export const removeLocalWeight = () => {
+    localStorage.removeItem("workingWeight")
+};
+
 // PROGRESS ROUTES -------------------------------------------
 
 export const progress = (user) => {

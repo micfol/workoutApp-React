@@ -19,10 +19,9 @@ export const GroupExercises = (props) => {
 
   useEffect(() => {
     value.getWorkoutHistory()
-    console.log('GroupExercise value.sessionData', value.sessionData)
-    
     value.getWorkingWeight()
-    
+    console.log('GroupExercise value.sessionData', value.sessionData)
+        
     if (value.sessionData.length === 0) {
       setIsWorkoutA(true)
     } 

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { verify, progress, fetchWorkingWeight } from "../api";
+import { verify, progress, fetchWorkingWeight, getLocalWeight, setLocalWeight, removeLocalWeight} from "../api";
 
 const UserContext = createContext();
 
@@ -19,6 +19,7 @@ function UserProviderWrapper({ children }) {
     const getWorkingWeight = async () => {
         const response = await fetchWorkingWeight(user._id)
         setWorkingWeight(response.data)
+        setLocalWeight(response.data)
         console.log('workingWeight', workingWeight)
     }
     
@@ -63,6 +64,7 @@ function UserProviderWrapper({ children }) {
     const logoutUser = () => {
         removeToken();
         authenticateUser();
+        removeLocalWeight()
     };
 
     // Allows the user to stay logged in when refreshing the page
