@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { verify, progress, fetchWorkingWeight, getLocalWeight, setLocalWeight, removeLocalWeight} from "../api";
+import { verify, progress, fetchWorkingWeight, setLocalWeight, removeLocalWeight} from "../api";
 
 const UserContext = createContext();
 
@@ -10,6 +10,7 @@ function UserProviderWrapper({ children }) {
     const [isLoading, setIsLoading] = useState(true);
     const [sessionData, setSessionData] = useState([]);
     const [workingWeight, setWorkingWeight] = useState()
+
 
     const getWorkoutHistory = async () => {
         const response = await progress(user._id);

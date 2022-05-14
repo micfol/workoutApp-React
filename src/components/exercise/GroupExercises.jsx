@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useContext } from "react";
 import { workoutA, workoutB } from "./workouts";
 import { UserContext } from "../../context/user.context.js";
-import { exerciseEntry } from "../../api.js";
+import { exerciseEntry, getLocalWeight } from "../../api.js";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import Loading from "../utilities/Loading";
 import Icons from "../utilities/Icons";
@@ -13,7 +13,6 @@ export const GroupExercises = (props) => {
 
   const value = useContext(UserContext);  
   const navigate = useNavigate();
-
   const [workout, setWorkout] = useState(null);
   const [isWorkoutA, setIsWorkoutA] = useState(true)
 
@@ -29,7 +28,21 @@ export const GroupExercises = (props) => {
     ? setIsWorkoutA(false)
     : setIsWorkoutA(true)
 
-    isWorkoutA ? setWorkout(workoutA) : setWorkout(workoutB);
+    const localWeight = getLocalWeight()
+
+    const updatedWorkoutA = {
+      squat: {...workoutA.squat, weight: localWeight.squat},
+      bench: {...workoutA.bench, weight: localWeight.bench},
+      row: {...workoutA.row, weight: localWeight.row}
+    }
+
+    const updatedWorkoutB = {
+      squat: {...workoutB.squat, weight: localWeight.squat},
+      military: {...workoutB.military, weight: localWeight.military},
+      deadlift: {...workoutB.deadlift, weight: localWeight.deadlift}
+    }
+
+    isWorkoutA ? setWorkout(updatedWorkoutA) : setWorkout(updatedWorkoutB);
 
   }, [value.user, isWorkoutA, value.sessionData.length]);
 
@@ -78,10 +91,10 @@ export const GroupExercises = (props) => {
                 sx={{ justifyContent: "space-between", alignItems: "center" }}
               >
                 {Icons[exercise[0]]}
-                <Typography variant="h1" sx={{ fontSize: "2rem" }}>
+                <Typography variant="h1" sx={{ fontSize: "1.8rem" }}>
                   {exerciseName}
                 </Typography>
-                <Typography variant="h1" sx={{ fontSize: "1.5rem" }}>
+                <Typography variant="h1" sx={{ fontSize: "1.4rem" }}>
                   {weight}kg
                 </Typography>
               </Stack>
