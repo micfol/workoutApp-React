@@ -21,6 +21,8 @@ export const GroupExercises = (props) => {
     value.getWorkoutHistory()
     console.log('GroupExercise value.sessionData', value.sessionData)
     
+    value.getWorkingWeight()
+    
     if (value.sessionData.length === 0) {
       setIsWorkoutA(true)
     } 
@@ -41,7 +43,7 @@ export const GroupExercises = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const workoutExercises = Object.values(workout);
+    const workoutExercises = Object.entries(workout);
     const response = await exerciseEntry({
       isWorkoutA,
       workoutExercises,

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { verify, progress } from "../api";
+import { verify, progress, fetchWorkingWeight } from "../api";
 
 const UserContext = createContext();
 
@@ -9,12 +9,19 @@ function UserProviderWrapper({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [sessionData, setSessionData] = useState([]);
+    const [workingWeight, setWorkingWeight] = useState()
 
     const getWorkoutHistory = async () => {
         const response = await progress(user._id);
         setSessionData(response.data)
     }
 
+    const getWorkingWeight = async () => {
+        const response = await fetchWorkingWeight(user._id)
+        setWorkingWeight(response.data)
+        console.log('workingWeight', workingWeight)
+    }
+    
 
     const storeToken = (token) => {
         localStorage.setItem("authToken", token);
@@ -33,7 +40,7 @@ function UserProviderWrapper({ children }) {
                 try {
                     const response = await verify(storeToken);
                     const user = response.data;
-                    // console.log('returned context user:', user)
+                    console.log('returned context user:', user)
                     setUser(user);
                     setIsLoggedIn(true);
                     setIsLoading(false);
@@ -70,6 +77,9 @@ function UserProviderWrapper({ children }) {
             sessionData,
             setSessionData,
             getWorkoutHistory,
+            getWorkingWeight,
+            workingWeight,
+            setWorkingWeight,
             isLoggedIn,
             storeToken,
             authenticateUser,

@@ -42,6 +42,9 @@ export const exerciseEntry = (exerciseEntry) => {
     return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
 }
 
+export const fetchWorkingWeight =  (user) => {
+     return  axios.get(`${baseURL}/workingweight/${user}`);
+}
 // PROGRESS ROUTES -------------------------------------------
 
 export const progress = (user) => {
