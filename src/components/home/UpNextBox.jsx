@@ -30,15 +30,15 @@ export default function UpNextBox(props) {
         >
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <SquatsIcon />
-            <Typography variant="p1">Squats</Typography>
+            <Typography variant="e1">Squats</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <BenchPressIcon />
-            <Typography variant="p1">Bench Press</Typography>
+            <Typography variant="e1">Bench Press</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "30%" }}>
             <BarbellRowIcon />
-            <Typography variant="p1">Barbell Rows</Typography>
+            <Typography variant="e1">Barbell Rows</Typography>
           </Stack>
         </Stack>
       ) : (
@@ -51,15 +51,15 @@ export default function UpNextBox(props) {
         >
           <Stack direction="column" alignItems="center" sx={{ width: "25%" }}>
             <SquatsIcon />
-            <Typography variant="p1">Squats</Typography>
+            <Typography variant="e1">Squats</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "38%" }}>
             <OverheadPressIcon />
-            <Typography variant="p1">Overhead Press</Typography>
+            <Typography variant="e1">Overhead Press</Typography>
           </Stack>
           <Stack direction="column" alignItems="center" sx={{ width: "25%" }}>
             <DeadliftIcon />
-            <Typography variant="p1">Deadlift</Typography>
+            <Typography variant="e1">Deadlift</Typography>
           </Stack>
         </Stack>
       )}

@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 import { deleteWorkout } from "../../api";
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 const style = {
   position: "absolute",
@@ -14,7 +14,7 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   border: "2px solid #000",
-  borderColor: 'error.main',
+  borderColor: "error.main",
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -22,8 +22,8 @@ const style = {
 };
 
 const DeleteButton = styled(Button)(() => ({
-  fontFamily: 'Permanent Marker',
-  fontSize: '1rem',
+  fontFamily: "Permanent Marker",
+  fontSize: "1rem",
   outlined: true,
 }));
 
@@ -39,9 +39,8 @@ export default function DeleteCardModal(props) {
 
   const handleDelete = async (id) => {
     await deleteWorkout(id);
-    handleClose()
+    handleClose();
   };
-
 
   return (
     <div>
@@ -54,19 +53,26 @@ export default function DeleteCardModal(props) {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400, borderRadius: '16px' }}>
-          <Typography 
-          variant="h1" 
-          sx={{ fontSize: 28 }}
-          textAlign="center"
-          id="parent-modal-title">Delete Workout Entry!!</Typography>
-          <Box m={'2rem'}>
+        <Box sx={{ ...style, width: 400, borderRadius: "16px" }}>
+          <Typography
+            variant="h1"
+            sx={{ fontSize: 28 }}
+            textAlign="center"
+            id="parent-modal-title"
+          >
+            Delete Workout Entry!!
+          </Typography>
+          <Box m={"2rem"}>
             <Typography variant="p1">
               Are you sure you want to complete this action? This cannot be
               undone.
             </Typography>
           </Box>
-          <Button onClick={(e) => handleDelete(workoutId)}><DeleteButton color="error">- Delete My Entry -</DeleteButton></Button>
+          <Box textAlign="center">
+            <Button onClick={(e) => handleDelete(workoutId)}>
+              <DeleteButton color="error">- Delete My Entry -</DeleteButton>
+            </Button>
+          </Box>
         </Box>
       </Modal>
     </div>

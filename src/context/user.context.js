@@ -11,20 +11,19 @@ function UserProviderWrapper({ children }) {
     const [sessionData, setSessionData] = useState([]);
     const [workingWeight, setWorkingWeight] = useState()
 
-
     const getWorkoutHistory = async () => {
-        const response = await progress(user._id);
+        const response = await progress();
         setSessionData(response.data)
     }
 
     const getWorkingWeight = async () => {
-        const response = await fetchWorkingWeight(user._id)
+        const response = await fetchWorkingWeight()
+
         setWorkingWeight(response.data)
         setLocalWeight(response.data)
         console.log('workingWeight', workingWeight)
     }
     
-
     const storeToken = (token) => {
         localStorage.setItem("authToken", token);
     };
@@ -41,9 +40,10 @@ function UserProviderWrapper({ children }) {
             (async () => {
                 try {
                     const response = await verify(storeToken);
-                    const user = response.data;
+                    const user1 = response.data;
+                    console.log("user1", user1)
+                    setUser(user1);
                     console.log('returned context user:', user)
-                    setUser(user);
                     setIsLoggedIn(true);
                     setIsLoading(false);
                 } catch (e) {

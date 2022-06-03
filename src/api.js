@@ -42,8 +42,13 @@ export const exerciseEntry = (exerciseEntry) => {
     return axios.post(`${baseURL}/exerciseentry`, exerciseEntry);
 }
 
+// export const fetchWorkingWeight = async  () => {
+//     const response = await axios.get(`${baseURL}/verify`, { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }})
+//     return  axios.get(`${baseURL}/workingweight/${response.data}`);
+// }
+
 export const fetchWorkingWeight =  (user) => {
-     return  axios.get(`${baseURL}/workingweight/${user}`);
+    return  axios.get(`${baseURL}/workingweight/${user}`);
 }
 
 export const setLocalWeight = (workingWeight) => {
@@ -59,9 +64,14 @@ export const removeLocalWeight = () => {
 };
 // PROGRESS ROUTES -------------------------------------------
 
-export const progress = (user) => {
-    return axios.get(`${baseURL}/progress/${user}`)
+export const progress = async (user) => {
+    const response = await axios.get(`${baseURL}/verify`, { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }})
+    return axios.get(`${baseURL}/progress/${response.data._id}`)
 }
+
+// export const progress = async () => {
+//     return axios.get(`${baseURL}/progress/${user}`)
+// }
 
 // EDUCATION ROUTES ------------------------------------------
 

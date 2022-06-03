@@ -1,7 +1,8 @@
 import { React, useState, useEffect, useContext } from "react";
 import { workoutA, workoutB } from "./workouts";
 import { UserContext } from "../../context/user.context.js";
-import { exerciseEntry, getLocalWeight } from "../../api.js";
+import { exerciseEntry } from "../../api.js";
+// import { getLocalWeight } from "../../api.js";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import Loading from "../utilities/Loading";
 import Icons from "../utilities/Icons";
@@ -19,33 +20,46 @@ export const GroupExercises = (props) => {
   useEffect(() => {
     value.getWorkoutHistory()
     value.getWorkingWeight()
-    console.log('GroupExercise value.sessionData', value.sessionData)
-        
-    if (value.sessionData.length === 0) {
-      setIsWorkoutA(true)
-    } 
-    else (value.sessionData[0].isWorkoutA === true)
-    ? setIsWorkoutA(false)
-    : setIsWorkoutA(true)
+    // console.log('GroupExercise value.sessionData', value.sessionData)
+      
+    
+        if (value.sessionData.length === 0) {
+            setIsWorkoutA(true)
+          } 
+          else (value.sessionData[0].isWorkoutA === true)
+          ? setIsWorkoutA(false)
+          : setIsWorkoutA(true)
+      
+          const localWeight = {
+              squat: 20,
+              bench: 20,
+              row: 30,
+              military: 20,
+              deadlift: 40
 
-    const localWeight = getLocalWeight()
+          }  
+        //   getLocalWeight();
+          const updatedWorkoutA = {
+            squat: {...workoutA.squat, weight: localWeight.squat},
+            bench: {...workoutA.bench, weight: localWeight.bench},
+            row: {...workoutA.row, weight: localWeight.row}
+          };
+          console.log('updatedWorkoutA :>> ', updatedWorkoutA);
+      
+          const updatedWorkoutB = {
+            squat: {...workoutB.squat, weight: localWeight.squat},
+            military: {...workoutB.military, weight: localWeight.military},
+            deadlift: {...workoutB.deadlift, weight: localWeight.deadlift}
+          };
+      
+          isWorkoutA ? setWorkout(updatedWorkoutA) : setWorkout(updatedWorkoutB);
 
-    const updatedWorkoutA = {
-      squat: {...workoutA.squat, weight: localWeight.squat},
-      bench: {...workoutA.bench, weight: localWeight.bench},
-      row: {...workoutA.row, weight: localWeight.row}
-    }
-
-    const updatedWorkoutB = {
-      squat: {...workoutB.squat, weight: localWeight.squat},
-      military: {...workoutB.military, weight: localWeight.military},
-      deadlift: {...workoutB.deadlift, weight: localWeight.deadlift}
-    }
-
-    isWorkoutA ? setWorkout(updatedWorkoutA) : setWorkout(updatedWorkoutB);
+    
 
   }, [value.user, isWorkoutA, value.sessionData.length]);
 
+
+  
   const handleClick = (e, exercise, i) => {
     e.preventDefault();
     const copy = { ...workout[exercise] };
@@ -75,7 +89,7 @@ export const GroupExercises = (props) => {
     <Loading />
   ) : (
     <Box sx={{}}>
-      <Typography variant='h6'>{isWorkoutA ? 'Workout A' : 'Workout B'}</Typography>
+      <Typography variant='e2'>{isWorkoutA ? 'Workout A' : 'Workout B'}</Typography>
       <Stack
         spacing={2}
         sx={{ py: 2 }}

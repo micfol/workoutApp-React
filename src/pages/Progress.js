@@ -5,14 +5,17 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { IsPrivate } from "../components/IsPrivate";
 
-
 export const Progress = () => {
 
     const value = useContext(UserContext);
+
+    
     
     useEffect(() => {
-        value.getWorkoutHistory()
-        console.log('value.sessionData', value.sessionData)
+       
+            value.getWorkoutHistory()
+        
+        // console.log('value.sessionData', value.sessionData)
     }, [value.user, value.sessionData.length]);
 
     const list = value.sessionData.map((exercise) => {

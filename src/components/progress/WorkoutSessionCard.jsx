@@ -67,7 +67,7 @@ export default function WorkoutSessionCard(props) {
                 </Typography>
               </Grid>
               <Grid item xs={4}>
-                {info.isWorkoutA ? <OverheadPressIcon /> : <BenchPressIcon />}
+                {info.isWorkoutA ? <BenchPressIcon /> : <OverheadPressIcon />}
               </Grid>
               <Grid item xs={8}>
                 <Typography variant="e1" textAlign="center">
@@ -79,7 +79,7 @@ export default function WorkoutSessionCard(props) {
                 </Typography>
               </Grid>
               <Grid item xs={4}>
-                {info.isWorkoutA ? <DeadliftIcon /> : <BarbellRowIcon />}
+                {info.isWorkoutA ? <BarbellRowIcon /> : <DeadliftIcon />}
               </Grid>
               <Grid item xs={8}>
                 <Typography 

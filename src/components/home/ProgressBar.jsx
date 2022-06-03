@@ -28,6 +28,7 @@ export default function CustomizedProgressBar() {
 
   useEffect(() => {
     const user = value.user;
+    console.log('user :>> ', user);
     const getProgress = async () => {
       const response = await progress(user._id);
       const fractionalProgress = (response.data.length / 36) * 100

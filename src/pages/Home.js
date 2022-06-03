@@ -7,11 +7,6 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import { IsPrivate } from "../components/IsPrivate";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Card from '@mui/material/Card';
-
-const homeCardStyle = {
-    height: "35rem",
-}
 
 export const Home = () => {
   const value = useContext(UserContext);
@@ -34,25 +29,24 @@ export const Home = () => {
   return (
     <IsPrivate>
       <>
-      <Card style={homeCardStyle} m={'auto'}>
-        <Box m={"2rem"}>
-          <Typography variant="p1" sx={{ fontSize: "1.5rem" }}>
+        <Box m={"1rem"}>
+          <Typography variant="p2" sx={{ fontSize: "1.5rem" }}>
             Welcome to StrongLiftr
           </Typography>
         </Box>
-        <Box mb={"2rem"}>
-          <Typography variant="p1" sx={{ fontSize: "2rem" }}>
+        <Box mb={"1rem"}>
+          <Typography variant="h1">
             {value.user
               ? `${value.user.firstName} ${value.user.lastName}`
               : null}
           </Typography>
         </Box>
         <ProgressBar />
-        <Box mb={'2rem'}>
-            <Typography variant="p1">Up Next:  Workout {isWorkoutA ? 'A' : 'B'}</Typography>
+        <Box mb={'1rem'}>
+            <Typography variant="p2">Up Next:  Workout {isWorkoutA ? 'A' : 'B'}</Typography>
         </Box>    
         <UpNextBox isWorkoutA={isWorkoutA} />
-        <Box mt={'2rem'}>
+        <Box mt={'1rem'}>
             <Button
             variant="contained"
             startIcon={<BoltIcon />}
@@ -61,7 +55,6 @@ export const Home = () => {
             <Typography variant="b1">Start Workout</Typography>
             </Button>
         </Box>
-      </Card>  
       </>
     </IsPrivate>
   );
